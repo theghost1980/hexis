@@ -6,8 +6,8 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1 pt-16">
-        <section className="mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+        <section className="mx-auto max-w-container px-5 py-16 sm:py-16 text-center">
+          <h1>
             Construye ventaja a través de la práctica
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -16,7 +16,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section id="cta-form" className="mx-auto max-w-xl px-4 py-24 sm:px-6">
+        <section id="cta-form" className="mx-auto max-w-xl px-5 py-16 sm:py-16">
           <p className="text-center text-sm text-muted-foreground">
             [Aquí irá el formulario de descarga]
           </p>

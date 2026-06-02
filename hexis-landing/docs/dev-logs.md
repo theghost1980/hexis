@@ -20,6 +20,43 @@
 
 ---
 
+## 2026-06-02 – Paso 1: Implementación Style Bible LIGHT
+
+### Tipografía
+
+- Reemplazo de Geist Sans/Mono por **Plus Jakarta Sans** (300–700) y **JetBrains Mono** (400, 500) via `next/font/google`.
+
+### Paleta de colores
+
+- Migración de CSS HSL variables genéricas a colores fijos LIGHT del Style Bible:
+  - Fondo: `#FFFFFF`, Fondo secundario: `#F8F9FA`
+  - Texto principal: `#1A1A1A`, Texto secundario: `#4A5568`
+  - Títulos: `#0B1E33`, Acento primario: `#2563EB`, Acento secundario: `#F59E0B`
+  - Bordes: `#E2E8F0`, Éxito: `#059669`
+- Jerarquía tipográfica base en `globals.css` (h1–h4, a, code).
+
+### Tailwind config
+
+- Nuevos tokens: `fontFamily` (sans/mono), `success`, `maxWidth.container: 1200px`.
+
+### Componentes
+
+- **Button**: nuevas variants `cta` (dorado) y `outline-blue` (borde azul) según specs.
+- **Card**: bg `#F8F9FA`, borde `#E2E8F0`, sombra `0 4px 6px -1px rgba(0,0,0,0.05)`, padding 24px, radius `0.75rem`.
+- **Callout**: borde izquierdo `#2563EB`, bg `#F0F4FF`, padding 16px 20px.
+
+### Layout
+
+- Contenedor principal: `max-width: 1200px` centrado con padding `0 20px`.
+- Secciones: padding vertical `4rem` desktop, `2rem` mobile.
+- Navbar y Footer actualizados al nuevo container y botón CTA.
+
+### Verificación
+
+- `tsc --noEmit` y `next lint` pasan sin errores.
+
+---
+
 ## 2026-06-02 – Nueva visión del landing
 
 ### Objetivo ampliado

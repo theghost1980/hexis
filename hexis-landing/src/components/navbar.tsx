@@ -23,7 +23,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-container items-center justify-between px-5 py-3">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logos/hexis-logo-black-font-ES.png"
@@ -36,9 +36,9 @@ export function Navbar() {
         </Link>
 
         <Button
-          variant="default"
+          variant="cta"
           size="sm"
-          className="gap-2 rounded-full"
+          className="gap-2 rounded-lg"
           onClick={() =>
             document.getElementById("cta-form")?.scrollIntoView({ behavior: "smooth" })
           }

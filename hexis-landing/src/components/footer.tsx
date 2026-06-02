@@ -5,7 +5,7 @@ import { ExternalLink, Globe, Mail } from "lucide-react"
 export function Footer() {
   return (
     <footer className="border-t">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-container px-5 py-12">
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
           <div className="flex flex-col items-center gap-2 sm:items-start">
             <Link href="/">
