@@ -184,3 +184,24 @@ Se utilizará el **mismo sistema de diseño del libro**, pero en su **versión l
 
 - Actualizar el roadmap de prompts para incluir la construcción de la página de soporte.
 - Implementar los componentes con el estilo visual del libro.
+
+---
+
+## 2026-06-02 – Optimización mobile (viewport fixes)
+
+### Problemas detectados y corregidos
+
+| # | Archivo | Cambio |
+|---|---------|--------|
+| 1 | `FutureVisionSection.tsx` | Margen negativo `-ml-[calc(...)]` movido a `lg:` para evitar overflow horizontal en mobile. Gradiente decorativo oculto en mobile con `hidden lg:block`. |
+| 2 | `RejectionCarouselSection.tsx` | Cards cambiadas de `min-w-[340px]` a `min-w-[280px] sm:min-w-[340px]` para que quepan en pantallas de ~375px. |
+| 3 | `HeroSection.tsx` | `min-h` reducido de `600px` a `500px sm:600px`. Imagen de fondo cambió a `inset-0` con `opacity-40 sm:opacity-100` para no opacar el contenido en mobile. Tarjeta `p-5 sm:p-10`. Título `text-[1.75rem] sm:text-[2.5rem]`. |
+| 4 | `floating-heading.tsx` | Sticky behavior movido a `lg:sticky lg:top-0` para que no compita con el navbar en mobile. |
+| 5 | `globals.css` | Headings ahora responsivos: `h1` → `text-[1.75rem] sm:text-[2.5rem]`, `h2` → `text-[1.5rem] sm:text-[1.8rem]`, `h3` → `text-[1.15rem] sm:text-[1.3rem]`. |
+| 6 | `TestimonialSection.tsx` | Avatar reducido a `h-24 w-24 sm:h-40 sm:w-40`. |
+| 7 | `MarketPainSection.tsx` | Comilla decorativa `text-[140px]` oculta en mobile con `hidden sm:block`. |
+
+### Verificación
+
+- `npm run build` completado sin errores.
+- `out/` generado correctamente con todos los archivos estáticos.

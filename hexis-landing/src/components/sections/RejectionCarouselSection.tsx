@@ -139,7 +139,7 @@ function RejectionCard({ card }: { card: CardData }) {
   const isSlack = card.type === "Slack"
 
   return (
-    <div className="flex min-w-[340px] max-w-[340px] shrink-0 flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
+    <div className="flex min-w-[280px] max-w-[280px] shrink-0 flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] sm:min-w-[340px] sm:max-w-[340px]">
       {isWhatsApp ? (
         <div className="bg-[#25D366]/10 px-5 py-3">
           <div className="flex items-center gap-3">

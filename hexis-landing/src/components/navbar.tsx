@@ -7,12 +7,11 @@ import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
 
 export function Navbar() {
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
-      const progress = Math.min(1, window.scrollY / 800)
-      setScrollProgress(progress)
+      setScrolled(window.scrollY > 10)
     }
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
@@ -21,11 +20,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       <div
-        className="flex w-full items-center justify-between py-1.5 transition-all duration-300 ease-out"
-        style={{
-          paddingLeft: `${Math.max(0, 20 - scrollProgress * 20)}px`,
-          paddingRight: `${Math.max(0, 20 - scrollProgress * 20)}px`,
-        }}
+        className={`flex items-center justify-between py-1.5 transition-all duration-500 ease-in-out ${scrolled ? "w-full px-0" : "mx-auto max-w-container px-5"}`}
       >
         <Link href="/" className="flex items-center gap-2">
           <Image

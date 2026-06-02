@@ -59,7 +59,7 @@ export function MarketPainSection() {
 
         <div className="relative mt-12 overflow-hidden rounded-xl bg-[#F0F4FF] p-8 text-center">
           <span
-            className="absolute -left-4 -top-8 select-none text-[140px] font-bold leading-none text-[#1A2B3C]/5"
+            className="absolute -left-4 -top-8 hidden select-none text-[140px] font-bold leading-none text-[#1A2B3C]/5 sm:block"
             aria-hidden="true"
           >
             {'\u201C'}

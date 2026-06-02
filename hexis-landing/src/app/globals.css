@@ -38,15 +38,15 @@
   }
 
   h1 {
-    @apply text-[2.5rem] font-bold text-[#0B1E33];
+    @apply text-[1.75rem] font-bold text-[#0B1E33] sm:text-[2.5rem];
   }
 
   h2 {
-    @apply text-[1.8rem] font-semibold text-[#0B1E33];
+    @apply text-[1.5rem] font-semibold text-[#0B1E33] sm:text-[1.8rem];
   }
 
   h3 {
-    @apply text-[1.3rem] font-semibold text-[#0B1E33];
+    @apply text-[1.15rem] font-semibold text-[#0B1E33] sm:text-[1.3rem];
   }
 
   h4 {

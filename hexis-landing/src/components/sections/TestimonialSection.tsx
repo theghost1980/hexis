@@ -6,7 +6,7 @@ export function TestimonialSection() {
     <section className="bg-[#F8F9FA] py-16 sm:py-16">
       <div className="mx-auto max-w-container px-5">
         <div className="mx-auto max-w-3xl rounded-xl border border-[#E2E8F0] bg-white p-8 text-center shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] sm:p-12">
-          <div className="mx-auto mb-6 h-40 w-40 overflow-hidden rounded-full border-2 border-[#2563EB]/20">
+          <div className="mx-auto mb-6 h-24 w-24 overflow-hidden rounded-full border-2 border-[#2563EB]/20 sm:h-40 sm:w-40">
             <Image
               src="/images/avatar-testimonial.png"
               alt="Andrés Silva"

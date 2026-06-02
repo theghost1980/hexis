@@ -42,7 +42,7 @@ export function FutureVisionSection() {
         </div>
 
         <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-[2fr_1fr] lg:gap-16">
-          <div className="relative -ml-[calc((100vw-1200px)/2+20px)] w-[calc(100%+(100vw-1200px)/2+20px)] overflow-hidden rounded-xl lg:rounded-l-none">
+          <div className="relative w-full overflow-hidden rounded-xl lg:-ml-[calc((100vw-1200px)/2+20px)] lg:w-[calc(100%+(100vw-1200px)/2+20px)] lg:rounded-l-none">
             <Image
               src="/images/about-system.png"
               alt="Hexis – sistema de crecimiento"
@@ -50,7 +50,7 @@ export function FutureVisionSection() {
               height={1080}
               className="h-full w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-r from-transparent to-white" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-32 bg-gradient-to-r from-transparent to-white lg:block" />
           </div>
 
           <div className="flex flex-col gap-6">

@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[600px] items-center overflow-hidden bg-white">
+    <section className="relative flex min-h-[500px] items-center overflow-hidden bg-white sm:min-h-[600px]">
       <div className="absolute inset-y-0 right-0 w-3/4">
         <Image
           src="/images/hero-image.png"
@@ -17,12 +17,12 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-container px-5 py-16">
-            <div className="max-w-lg rounded-2xl bg-white/80 p-8 backdrop-blur-sm sm:p-10">
+            <div className="max-w-lg rounded-2xl bg-white/80 p-5 backdrop-blur-sm sm:p-10">
           <span className="mb-4 inline-block rounded-full border border-[#E2E8F0] bg-white px-4 py-1 text-xs font-semibold tracking-wide text-[#F5A623]">
             HEXIS · MAYO 2026
           </span>
 
-          <h1 className="text-[#1A2B3C]">
+          <h1 className="text-[1.75rem] text-[#1A2B3C] sm:text-[2.5rem]">
             El sistema que convierte práctica en oportunidades reales.
           </h1>
 
