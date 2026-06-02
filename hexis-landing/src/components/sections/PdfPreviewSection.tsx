@@ -2,31 +2,24 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { FloatingHeading } from "@/components/ui/floating-heading"
-import { Check } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 
 const items = [
-  "El script exacto para renovar tu CV con IA.",
-  "Deep research de ofertas en minutos.",
-  "Prompts para extraer dolores de negocio de cualquier vacante.",
-  "Cómo diseñar un demo imbatible en 6 horas.",
-  "Plantilla de README que vende tu candidatura.",
-  "El mensaje de correo que abre puertas con CTOs.",
-  "Preparación de entrevistas con simulador de IA.",
-  "Checklist de despliegue gratuito (Vercel, Railway, Supabase).",
+  "Desbloquea el script exacto para renovar tu CV con IA.",
+  "Realiza un deep research de ofertas en minutos.",
+  "Extrae los pain points de negocio de cualquier vacante.",
+  "Aprende a diseñar un demo imbatible en 6 horas.",
+  "Consigue la plantilla de README que vende tu candidatura.",
+  "Domina el mensaje de correo que abre puertas con CTOs.",
+  "Prepárate con el simulador de IA para entrevistas.",
+  "Accede al checklist de despliegue gratuito (Vercel, Railway, Supabase).",
 ]
 
 export function PdfPreviewSection() {
   return (
-    <section className="bg-[#F8F9FA] py-16 sm:py-16">
+    <section className="bg-white py-16 sm:py-16">
       <div className="mx-auto max-w-container px-5">
-        <div className="mx-auto max-w-2xl text-center">
-          <FloatingHeading>
-            <h2>Dentro del Método Hexis (28 páginas de acción)</h2>
-          </FloatingHeading>
-        </div>
-
-        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex items-center justify-center">
             <Image
               src="/images/pdf-mockup.png"
@@ -38,11 +31,13 @@ export function PdfPreviewSection() {
           </div>
 
           <div>
-            <ul className="space-y-4">
+            <h2>Dentro del Método Hexis (28 páginas de acción)</h2>
+
+            <ul className="mt-8 space-y-4">
               {items.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#059669]/10 text-[#059669]">
-                    <Check className="h-3.5 w-3.5" />
+                  <span className="mt-0.5 shrink-0 text-[#1A2B3C] font-mono text-sm font-bold">
+                    &gt;
                   </span>
                   <span className="text-sm text-[#1A1A1A] sm:text-base">
                     {item}
@@ -50,25 +45,23 @@ export function PdfPreviewSection() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
 
-        <div className="mt-12 text-center">
-          <Button
-            variant="cta"
-            size="lg"
-            onClick={() =>
-              document
-                .getElementById("cta-form")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            Descargar el PDF
-          </Button>
-          <p className="mt-3 text-xs text-[#4A5568]">
-            Al descargarlo entras a la comunidad Hexis y a la lista de espera
-            del programa avanzado.
-          </p>
+            <div className="mt-10">
+              <Button
+                variant="cta"
+                size="lg"
+                className="gap-2"
+                onClick={() =>
+                  document
+                    .getElementById("cta-form")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Descargar el PDF
+                <ArrowDown className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

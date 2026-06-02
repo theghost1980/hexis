@@ -1,13 +1,11 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-
 export function TestimonialSection() {
   return (
-    <section className="bg-white py-16 sm:py-16">
+    <section className="bg-[#F8F9FA] py-16 sm:py-16">
       <div className="mx-auto max-w-container px-5">
-        <div className="mx-auto max-w-3xl rounded-xl border border-[#E2E8F0] bg-[#F8F9FA] p-8 text-center shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] sm:p-12">
+        <div className="mx-auto max-w-3xl rounded-xl border border-[#E2E8F0] bg-white p-8 text-center shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] sm:p-12">
           <div className="mx-auto mb-6 h-40 w-40 overflow-hidden rounded-full border-2 border-[#2563EB]/20">
             <Image
               src="/images/avatar-testimonial.png"
@@ -32,26 +30,16 @@ export function TestimonialSection() {
           </p>
           <p className="text-sm text-[#4A5568]">Ing. de Software</p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 opacity-50 grayscale">
-            <span className="text-sm font-medium text-[#4A5568]">Next.js</span>
-            <span className="text-sm font-medium text-[#4A5568]">Node</span>
-            <span className="text-sm font-medium text-[#4A5568]">TypeScript</span>
-            <span className="text-sm font-medium text-[#4A5568]">OpenAI</span>
-            <span className="text-sm font-medium text-[#4A5568]">Vercel</span>
-          </div>
-
-          <div className="mt-8">
-            <Button
-              variant="outline-blue"
-              size="lg"
-              onClick={() =>
-                document
-                  .getElementById("hexis-system")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              Conoce el sistema
-            </Button>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm font-medium text-[#1A2B3C] opacity-60">
+            <span>Next.js</span>
+            <span className="text-[#CBD5E1]">|</span>
+            <span>Node</span>
+            <span className="text-[#CBD5E1]">|</span>
+            <span>TypeScript</span>
+            <span className="text-[#CBD5E1]">|</span>
+            <span>OpenAI</span>
+            <span className="text-[#CBD5E1]">|</span>
+            <span>Vercel</span>
           </div>
         </div>
       </div>
