@@ -230,3 +230,24 @@ Se utilizará el **mismo sistema de diseño del libro**, pero en su **versión l
 ### Verificación
 
 - `npm run build` completado sin errores. 3 rutas generadas: `/`, `/_not-found`, `/soporte`.
+
+---
+
+## 2026-06-02 – Página 404 personalizada
+
+### Nuevo archivo
+
+- **`src/app/not-found.tsx`**: Página 404 con diseño oscuro y coherente con la marca Hexis.
+
+### Elementos de diseño
+
+- **Fondo**: `#0A192F` (azul profundo como el CTA) con patrón SVG honeycomb hexagonal en opacidad muy baja (`opacity-[0.04]`) generado inline — sin assets externos.
+- **"404" decorativo**: texto enorme (`text-[300px]` en desktop) con `text-white/[0.03]` como elemento gráfico de fondo.
+- **Mensaje amigable**: "Has llegado a una página que no existe" + contexto de ayuda.
+- **3 tarjetas de navegación**: Volver al inicio, Método Hexis, Centro de Ayuda — cada una con ícono y hover elevado con color distintivo.
+- **CTA final**: botón dorado "Ir al inicio" con icono de flecha.
+- **Navbar y Footer** reutilizados del landing.
+
+### Verificación
+
+- `npm run build` completado sin errores. Ruta `/_not-found` → genera `out/404.html`.
