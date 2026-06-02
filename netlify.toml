@@ -1,6 +1,7 @@
 [build]
+  base = "hexis-landing"
   command = "npm run build"
-  publish = ".next"
+  publish = "hexis-landing/out"
 
 [[redirects]]
   from = "/*"
