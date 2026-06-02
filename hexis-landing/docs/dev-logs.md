@@ -107,6 +107,23 @@
 
 ---
 
+## 2026-06-02 – Paso 5: Testimonial Section
+
+### Nuevo componente
+
+- **TestimonialSection** (`src/components/sections/TestimonialSection.tsx`):
+  - Tarjeta central con testimonio en primera persona (historia de 200 rechazos → demo → CTO)
+  - Avatar generado por IA guardado en `/public/images/avatar-testimonial.png`
+  - Nombre: Andrés Silva (alias)
+  - Logos de tecnologías en gris (Next.js, Node, TypeScript, OpenAI, Vercel)
+  - Botón "Conoce el sistema" ancla a #hexis-system
+
+### Verificación
+
+- `tsc --noEmit` y `next lint` pasan sin errores.
+
+---
+
 ## 2026-06-02 – Nueva visión del landing
 
 ### Objetivo ampliado

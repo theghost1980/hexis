@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { MarketPainSection } from "@/components/sections/MarketPainSection"
 import { HexisSystemSection } from "@/components/sections/HexisSystemSection"
+import { TestimonialSection } from "@/components/sections/TestimonialSection"
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
         <MarketPainSection />
 
         <HexisSystemSection />
+
+        <TestimonialSection />
 
         <section id="cta-form" className="mx-auto max-w-xl px-5 py-16 sm:py-16">
           <p className="text-center text-sm text-muted-foreground">
