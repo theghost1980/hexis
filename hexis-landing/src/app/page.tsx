@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/HeroSection"
+import { MarketPainSection } from "@/components/sections/MarketPainSection"
 
 export default function Home() {
   return (
@@ -8,6 +9,8 @@ export default function Home() {
       <Navbar />
       <main className="flex-1 pt-16">
         <HeroSection />
+
+        <MarketPainSection />
 
         <section id="cta-form" className="mx-auto max-w-xl px-5 py-16 sm:py-16">
           <p className="text-center text-sm text-muted-foreground">

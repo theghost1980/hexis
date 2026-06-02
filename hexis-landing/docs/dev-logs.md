@@ -76,6 +76,22 @@
 
 ---
 
+## 2026-06-02 – Paso 3: Market Pain Section
+
+### Nuevo componente
+
+- **MarketPainSection** (`src/components/sections/MarketPainSection.tsx`):
+  - Título: "El mercado tech no perdona. La práctica sí."
+  - Subtítulo sobre 500 aplicaciones por oferta
+  - 3 tarjetas con iconos (FileSearch, MessageCircle, Cpu) describiendo dolores del mercado laboral
+  - Callout con estadística: "87 % de reclutadores prefiere portafolio sobre CV"
+
+### Verificación
+
+- `tsc --noEmit` y `next lint` pasan sin errores.
+
+---
+
 ## 2026-06-02 – Nueva visión del landing
 
 ### Objetivo ampliado
