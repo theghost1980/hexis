@@ -6,6 +6,7 @@ import { HexisSystemSection } from "@/components/sections/HexisSystemSection"
 import { TestimonialSection } from "@/components/sections/TestimonialSection"
 import { PdfPreviewSection } from "@/components/sections/PdfPreviewSection"
 import { CtaSection } from "@/components/sections/CtaSection"
+import { FutureVisionSection } from "@/components/sections/FutureVisionSection"
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
         <TestimonialSection />
 
         <PdfPreviewSection />
+
+        <FutureVisionSection />
 
         <CtaSection />
       </main>

@@ -137,6 +137,30 @@
 
 ---
 
+## 2026-06-02 – Paso 7: Future Vision Section
+
+### Nuevo componente
+
+- **FutureVisionSection**: 3 tarjetas (Cohortes guiadas, Mentorías 1:1, Comunidad privada) con descripción de cada programa futuro. CTA "Reserva tu lugar en la lista de espera" ancla al formulario.
+
+### Estructura completa de la landing
+
+La página ahora tiene todas las secciones del roadmap Fase 0:
+1. HeroSection
+2. MarketPainSection
+3. HexisSystemSection
+4. TestimonialSection
+5. PdfPreviewSection
+6. FutureVisionSection
+7. CtaSection (formulario)
+8. Footer
+
+### Verificación
+
+- `tsc --noEmit` y `next lint` pasan sin errores.
+
+---
+
 ## 2026-06-02 – Nueva visión del landing
 
 ### Objetivo ampliado
