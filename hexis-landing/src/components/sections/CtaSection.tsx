@@ -2,7 +2,7 @@
 
 export function CtaSection() {
   return (
-    <section id="cta-form" className="bg-[#0B1E33] py-16 sm:py-16">
+    <section id="cta-form" className="bg-[#0A192F] py-16 sm:py-16">
       <div className="mx-auto max-w-xl px-5 text-center">
         <h2 className="text-white">Consigue el Método Hexis ahora</h2>
         <p className="mt-4 text-base text-[#94A3B8] sm:text-lg">
@@ -19,7 +19,7 @@ export function CtaSection() {
             type="email"
             placeholder="tu@correo.com"
             required
-            className="flex-1 rounded-lg border border-[#1E3A5F] bg-white/10 px-4 py-3 text-sm text-white placeholder-[#64748B] outline-none ring-[#2563EB] transition-all focus:ring-2"
+            className="flex-1 rounded-lg border border-[#1E3A5F] bg-white/10 px-4 py-3 text-sm text-white placeholder-[#CBD5E1] outline-none ring-[#F5A623] transition-all focus:ring-2"
           />
           <button
             type="submit"
