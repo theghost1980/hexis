@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Sistemas modernos para profesionales ambiciosos. Descarga gratis el Método Hexis y conviértete en el candidato que las empresas quieren ver.",
   icons: {
-    icon: "/logos/favicon.ico",
+    icon: { url: "/favicon.ico", type: "image/x-icon" },
   },
 };
 
