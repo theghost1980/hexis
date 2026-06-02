@@ -92,6 +92,21 @@
 
 ---
 
+## 2026-06-02 – Paso 4: Hexis System Section (3 pilares + misterio)
+
+### Corrección crítica
+
+- **Problema:** La sección original revelaba los 8 pasos del método, eliminando la necesidad de comprar el PDF.
+- **Solución:** Se reemplazó por 3 pilares de alto nivel (Visibilidad real, Ofertas como oportunidades, IA como ventaja) que venden el resultado sin revelar el cómo.
+- Se agregó un callout explícito: *"No revelamos el sistema abiertamente porque quienes lo aplican en serio no necesitan atajos."*
+- CTA cambió a "Descubrir el método completo" (genera curiosidad en vez de asumir que ya lo conocen).
+
+### Verificación
+
+- `tsc --noEmit` y `next lint` pasan sin errores.
+
+---
+
 ## 2026-06-02 – Nueva visión del landing
 
 ### Objetivo ampliado
