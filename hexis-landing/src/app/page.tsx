@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { MarketPainSection } from "@/components/sections/MarketPainSection"
+import { RejectionCarouselSection } from "@/components/sections/RejectionCarouselSection"
 import { HexisSystemSection } from "@/components/sections/HexisSystemSection"
 import { TestimonialSection } from "@/components/sections/TestimonialSection"
 import { PdfPreviewSection } from "@/components/sections/PdfPreviewSection"
@@ -16,6 +17,8 @@ export default function Home() {
         <HeroSection />
 
         <MarketPainSection />
+
+        <RejectionCarouselSection />
 
         <HexisSystemSection />
 
