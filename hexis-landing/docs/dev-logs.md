@@ -57,6 +57,25 @@
 
 ---
 
+## 2026-06-02 – Paso 2: Hero Section
+
+### Nuevo componente
+
+- **HeroSection** (`src/components/sections/HeroSection.tsx`): sección de 2 columnas (stackeable en mobile).
+  - Badge "HEXIS · MAYO 2026"
+  - Título: "El sistema que convierte práctica en oportunidades reales."
+  - Subtítulo con historia de 200 rechazos → demo → CTO
+  - Botón CTA dorado "Descargar el PDF Gratis" (ancla a #cta-form)
+  - Botón secundario azul "Cómo funciona" (ancla a #hexis-system)
+  - Texto de confianza: "Sin spam. Acceso inmediato..."
+- Imagen hero generada por IA guardada en `/public/images/hero-image.png`.
+
+### Verificación
+
+- `tsc --noEmit` y `next lint` pasan sin errores.
+
+---
+
 ## 2026-06-02 – Nueva visión del landing
 
 ### Objetivo ampliado

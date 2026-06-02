@@ -195,6 +195,19 @@ Inserta el formulario de Beehiiv:
 - El diseño debe ser limpio, centrado, con un fondo azul muy oscuro (#1A2A4A) en esta sección para contrastar, con texto claro. El botón debe ser grande, dorado (#F59E0B) y visible.
 ```
 
+### Prompt 0.8.1 – Descuento solidario para países en crisis
+
+```text
+Dentro de la sección CTA (id="cta-form"), agrega un callout justo antes del formulario con el siguiente mensaje:
+
+Título: "🌍 ¿Estás en Venezuela o Ucrania?"
+Texto: "Sabemos que las condiciones económicas y sociales no son iguales para todos. Si resides en Venezuela o Ucrania y puedes comprobarlo, escríbenos a saturno@hexis.fyi con un comprobante de residencia (ID, factura de servicios, etc.) y te daremos un 40 % de descuento en el Método Hexis. Queremos que el conocimiento llegue a quienes más lo necesitan, sin importar las barreras."
+
+Estilo: usar el componente Callout (src/components/ui/callout.tsx) con un tono empático pero profesional. Debe estar visible antes del formulario de pago.
+```
+
+---
+
 ### Prompt 0.9 – Visión de futuro (escalabilidad del ecosistema Hexis)
 
 ```text
