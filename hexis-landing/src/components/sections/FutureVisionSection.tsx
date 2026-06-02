@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { FloatingHeading } from "@/components/ui/floating-heading"
 import { Users, GraduationCap, MessageCircle } from "lucide-react"
@@ -40,34 +41,52 @@ export function FutureVisionSection() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => {
-            const Icon = feature.icon
-            return (
-              <div
-                key={feature.title}
-                className="rounded-xl border border-[#E2E8F0] bg-[#F8F9FA] p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
-                  <Icon className="h-6 w-6" />
+        <div className="mt-12 grid items-stretch gap-10 lg:grid-cols-[2fr_1fr] lg:gap-16">
+          <div className="relative -ml-[calc((100vw-1200px)/2+20px)] w-[calc(100%+(100vw-1200px)/2+20px)] overflow-hidden rounded-xl lg:rounded-l-none">
+            <Image
+              src="/images/about-system.png"
+              alt="Hexis – sistema de crecimiento"
+              width={900}
+              height={1080}
+              className="h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-r from-transparent to-white" />
+          </div>
+
+          <div className="flex flex-col gap-6">
+            {features.map((feature, i) => {
+              const Icon = feature.icon
+              return (
+                <div
+                  key={feature.title}
+                  className={`group rounded-xl border border-[#E2E8F0] p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_20px_-5px_rgba(0,0,0,0.1)] ${
+                    i === 1
+                      ? "bg-gradient-to-b from-[#FEF7E6] to-white"
+                      : "bg-white"
+                  }`}
+                >
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1A2B3C]/10 text-[#1A2B3C]">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3>{feature.title}</h3>
+                  <p className="mt-2 text-sm text-[#4A5568]">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3>{feature.title}</h3>
-                <p className="mt-2 text-sm text-[#4A5568]">
-                  {feature.description}
-                </p>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
 
-        <div className="mt-8 text-center">
-          <p className="mb-6 text-sm text-[#4A5568]">
+        <div className="mt-10 text-center">
+          <p className="mb-5 text-sm text-[#4A5568]">
             Al unirte hoy, aseguras tu lugar con acceso anticipado y precio
             fundador.
           </p>
           <Button
             variant="cta"
             size="lg"
+            className="mx-auto gap-2"
             onClick={() =>
               document
                 .getElementById("cta-form")
