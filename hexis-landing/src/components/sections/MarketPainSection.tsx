@@ -1,8 +1,8 @@
-import { FileSearch, MessageCircle, Cpu } from "lucide-react"
+import { FileText, MessageCircle, Cpu } from "lucide-react"
 
 const pains = [
   {
-    icon: FileSearch,
+    icon: FileText,
     title: "ATS que descartan tu perfil sin leerlo.",
     description:
       "Los sistemas automáticos filtran CVs por palabras clave antes de que un humano los vea. Tu experiencia real nunca llega a quien decide.",
@@ -16,7 +16,7 @@ const pains = [
   {
     icon: Cpu,
     title:
-      "La IA generativa hace que cualquier CV luzca 'perfecto'.",
+      "La IA generativa hace que cualquier CV luzca \u2018perfecto\u2019.",
     description:
       "Cuando todos usan las mismas herramientas, el CV deja de ser un diferenciador. La única prueba real es lo que construyes y cómo lo presentas.",
   },
@@ -24,7 +24,7 @@ const pains = [
 
 export function MarketPainSection() {
   return (
-    <section className="bg-white py-16 sm:py-16">
+    <section className="bg-gradient-to-b from-white via-[#F8F9FA] to-white py-16 sm:py-16">
       <div className="mx-auto max-w-container px-5">
         <div className="mx-auto max-w-2xl text-center">
           <h2>El mercado tech no perdona. La práctica sí.</h2>
@@ -40,9 +40,9 @@ export function MarketPainSection() {
             return (
               <div
                 key={pain.title}
-                className="rounded-xl border border-[#E2E8F0] bg-[#F8F9FA] p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
+                className="group rounded-xl border border-[#E2E8F0] bg-[#F8F9FA] p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_20px_-5px_rgba(0,0,0,0.1)]"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#2563EB]/10 text-[#2563EB]">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1A2B3C]/10 text-[#1A2B3C]">
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3>{pain.title}</h3>
@@ -54,8 +54,14 @@ export function MarketPainSection() {
           })}
         </div>
 
-        <div className="mx-auto mt-12 max-w-2xl rounded-xl border border-[#E2E8F0] bg-[#F0F4FF] p-6 text-center">
-          <p className="text-lg font-semibold text-[#0B1E33]">
+        <div className="relative mt-12 overflow-hidden rounded-xl bg-[#F0F4FF] p-8 text-center">
+          <span
+            className="absolute -left-4 -top-8 select-none text-[140px] font-bold leading-none text-[#1A2B3C]/5"
+            aria-hidden="true"
+          >
+            {'\u201C'}
+          </span>
+          <p className="relative text-lg font-semibold text-[#0B1E33]">
             El 87 % de los reclutadores afirma que un portafolio con proyectos
             reales pesa más que el CV.
           </p>

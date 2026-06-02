@@ -1,72 +1,60 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="bg-gradient-to-b from-white to-[#F8F9FA]">
-      <div className="mx-auto max-w-container px-5 py-16 sm:py-16">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <span className="mb-4 inline-block rounded-full border border-[#E2E8F0] bg-white px-4 py-1 text-xs font-semibold tracking-wide text-[#2563EB]">
-              HEXIS · MAYO 2026
-            </span>
+    <section className="relative flex min-h-[600px] items-center overflow-hidden bg-white">
+      <div className="absolute inset-y-0 right-0 w-3/4">
+        <Image
+          src="/images/hero-image.png"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
 
-            <h1>
-              El sistema que convierte práctica en oportunidades reales.
-            </h1>
+      <div className="relative z-10 mx-auto w-full max-w-container px-5 py-16">
+            <div className="max-w-lg rounded-2xl bg-white/80 p-8 backdrop-blur-sm sm:p-10">
+          <span className="mb-4 inline-block rounded-full border border-[#E2E8F0] bg-white px-4 py-1 text-xs font-semibold tracking-wide text-[#F5A623]">
+            HEXIS · MAYO 2026
+          </span>
 
-            <p className="mt-4 text-base text-[#4A5568] sm:text-lg">
-              De 200 rechazos a tener al CTO revisando tu demo en 24 horas.
-              Descarga el Método Hexis y aprende a destacar usando la IA como
-              ventaja competitiva.
-            </p>
+          <h1 className="text-[#1A2B3C]">
+            El sistema que convierte práctica en oportunidades reales.
+          </h1>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button
-                variant="cta"
-                size="lg"
-                className="gap-2"
-                onClick={() =>
-                  document
-                    .getElementById("cta-form")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Descargar el PDF
-                <ArrowDown className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline-blue"
-                size="lg"
-                onClick={() =>
-                  document
-                    .getElementById("hexis-system")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Cómo funciona
-              </Button>
-            </div>
+          <p className="mt-4 text-base text-[#4A5568] sm:text-lg">
+            De 200 rechazos a tener al CTO revisando tu demo en 24 horas.
+            Descarga el Método Hexis y aprende a destacar usando la IA como
+            ventaja competitiva.
+          </p>
 
-            <p className="mt-4 text-xs text-[#4A5568]">
-              Sin spam. Acceso inmediato al método + lista de espera del
-              programa avanzado.
-            </p>
-          </div>
-
-          <div className="flex items-center justify-center">
-            <Image
-              src="/images/hero-image.png"
-              alt="Hexis – práctica convierte en oportunidades"
-              width={600}
-              height={450}
-              className="w-full max-w-lg rounded-xl object-cover"
-              priority
+          <form
+            className="mt-8 flex w-full flex-col gap-3 sm:flex-row"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="email"
+              placeholder="tu@correo.com"
+              required
+              className="flex-1 rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#1A2B3C] placeholder-[#94A3B8] outline-none ring-[#F5A623] transition-all focus:ring-2"
             />
-          </div>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F5A623] px-6 py-3 text-sm font-semibold text-[#1A2B3C] shadow-sm transition-all hover:bg-[#D97706]"
+            >
+              Descargar el Método
+              <ArrowDown className="h-4 w-4" />
+            </button>
+          </form>
+
+          <p className="mt-3 text-xs text-[#94A3B8]">
+            Sin spam. Acceso inmediato al método + lista de espera del
+            programa avanzado.
+          </p>
         </div>
       </div>
     </section>
