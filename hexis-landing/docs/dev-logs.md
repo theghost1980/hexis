@@ -205,3 +205,28 @@ Se utilizará el **mismo sistema de diseño del libro**, pero en su **versión l
 
 - `npm run build` completado sin errores.
 - `out/` generado correctamente con todos los archivos estáticos.
+
+---
+
+## 2026-06-02 – Página de Soporte (/soporte)
+
+### Nuevo componente
+
+- **Accordion** (`src/components/ui/accordion.tsx`): basado en `@radix-ui/react-accordion` con estilo Hexis (bordes #E2E8F0, texto #0B1E33, chevron animado).
+- **Página `/soporte`** (`src/app/soporte/page.tsx`): centro de ayuda con acordeón de FAQs.
+
+### Secciones del acordeón
+
+1. **Problemas con la compra en Gumroad**: enlace no recibido, pago rechazado, reembolsos.
+2. **Problemas al abrir el PDF**: visor de Android (solución Acrobat Reader), error en iPhone/iPad, archivo pesado.
+3. **Problemas con el contenido**: enlaces rotos, grupo WhatsApp, recursos adicionales.
+
+### Protección contra copia
+
+- `onContextMenu={(e) => e.preventDefault()}` en el contenedor del contenido.
+- `userSelect: "none"` y `-webkit-user-select: "none"` en el `<main>`.
+- Banner informativo: "Este contenido es para uso personal. Gracias por respetar el trabajo del autor."
+
+### Verificación
+
+- `npm run build` completado sin errores. 3 rutas generadas: `/`, `/_not-found`, `/soporte`.
