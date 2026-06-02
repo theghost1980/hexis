@@ -117,24 +117,44 @@ export default function SoportePage() {
                   </AccordionTrigger>
                   <AccordionContent>
                     <p>
-                      Este es el problema más común. Algunos visores de PDF integrados en Android (especialmente los navegadores) no renderizan correctamente las fuentes y fondos del Método Hexis.
+                      Este es el problema más común. El visor de PDF integrado en Android (el que usan Chrome y otros navegadores) es muy básico y no renderiza correctamente las fuentes ni los fondos del Método Hexis. El contenido está ahí, pero el visor no lo muestra.
                     </p>
-                    <div className="mt-3 rounded-lg border border-[#F59E0B]/20 bg-[#FFF8E7] p-4">
-                      <p className="font-semibold text-[#0B1E33]">Solución recomendada:</p>
-                      <ol className="ml-5 mt-2 list-decimal space-y-1">
+
+                    <div className="mt-4 rounded-lg border border-[#F59E0B]/20 bg-[#FFF8E7] p-4">
+                      <p className="font-semibold text-[#0B1E33]">✅ Solución recomendada: usa un lector de verdad</p>
+                      <p className="mt-1 text-sm text-[#4A5568]">
+                        Instala una app profesional para leer PDFs. El visor del navegador no es suficiente para un documento con diseño profesional como este.
+                      </p>
+                      <ol className="ml-5 mt-3 list-decimal space-y-1 text-sm">
                         <li>Descarga e instala{" "}
                           <strong>Adobe Acrobat Reader</strong> desde{" "}
                           <a href="https://play.google.com/store/apps/details?id=com.adobe.reader" target="_blank" rel="noopener noreferrer">
                             Google Play Store
-                          </a>.
-                        </li>
-                        <li>Abre el PDF directamente con Acrobat Reader en vez del visor del navegador.</li>
-                        <li>Si el PDF se descargó, presiónalo y selecciona &quot;Abrir con…&quot; → Adobe Acrobat.</li>
+                          </a>{" "}
+                          (gratuito).</li>
+                        <li>También sirven{" "}
+                          <strong>Xodo PDF Reader</strong>,{" "}
+                          <strong>Foxit PDF</strong> o cualquier editor de PDFs.</li>
+                        <li>Abre el PDF con esa app (no con el navegador).</li>
+                        <li>Si el PDF ya está descargado, mantén presionado el archivo y selecciona &quot;Abrir con…&quot; → Adobe Acrobat.</li>
                       </ol>
                     </div>
-                    <p className="mt-3">
-                      Los visores integrados de algunos dispositivos no renderizan correctamente fuentes y fondos complejos. Recomendamos abrir el PDF siempre con Acrobat Reader.
-                    </p>
+
+                    <div className="mt-4 rounded-lg border border-[#2563EB]/20 bg-[#F0F4FF] p-4">
+                      <p className="font-semibold text-[#0B1E33]">💡 Hack útil: imprimir funciona</p>
+                      <p className="mt-1 text-sm text-[#4A5568]">
+                        Aunque no se vea en la pantalla, el contenido está completamente intacto en el archivo. Si necesitas leerlo urgentemente, puedes imprimir el PDF (desde la opción &quot;Compartir&quot; → &quot;Imprimir&quot; o conectándolo a una impresora) y el documento se renderizará completo con todo el texto visible.
+                      </p>
+                    </div>
+
+                    <div className="mt-4 rounded-lg border border-[#059669]/20 bg-[#F0FDF4] p-4">
+                      <p className="font-semibold text-[#0B1E33]">🔧 Si nada de esto funciona</p>
+                      <p className="mt-1 text-sm text-[#4A5568]">
+                        Escríbeme al chat de soporte o a{" "}
+                        <a href="mailto:saturno@hexis.fyi">saturno@hexis.fyi</a>{" "}
+                        y resolveré todas tus dudas directamente. El contenido del PDF también está disponible en formato texto y puedo ayudarte con lo que necesites.
+                      </p>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
 
