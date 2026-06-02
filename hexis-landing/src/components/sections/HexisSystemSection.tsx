@@ -27,7 +27,7 @@ const pillars = [
 
 export function HexisSystemSection() {
   return (
-    <section id="hexis-system" className="bg-[#F8F9FA] py-16 sm:py-16">
+    <section id="hexis-system" className="bg-white py-16 sm:py-16">
       <div className="mx-auto max-w-container px-5">
         <div className="mx-auto max-w-2xl text-center">
           <span className="mb-4 inline-block rounded-full border border-[#E2E8F0] bg-white px-4 py-1 text-xs font-semibold tracking-wide text-[#2563EB]">
@@ -43,14 +43,18 @@ export function HexisSystemSection() {
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((pillar) => {
+          {pillars.map((pillar, i) => {
             const Icon = pillar.icon
             return (
               <div
                 key={pillar.title}
-                className="rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]"
+                className={`rounded-xl border border-[#E2E8F0] p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] ${
+                  i === 1
+                    ? "bg-gradient-to-b from-[#FEF7E6] to-white"
+                    : "bg-white"
+                }`}
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#F59E0B]/10 text-[#F59E0B]">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1A2B3C]/10 text-[#1A2B3C]">
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3>{pillar.title}</h3>
