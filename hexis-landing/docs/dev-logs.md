@@ -124,6 +124,19 @@
 
 ---
 
+## 2026-06-02 – Paso 6: PdfPreview + CtaSection
+
+### Nuevos componentes
+
+- **PdfPreviewSection**: mockup del PDF (imagen generada) + checklist de 8 contenidos con iconos check verdes + CTA "Descargar el PDF" con copy de comunidad y lista de espera.
+- **CtaSection** (id="cta-form"): sección de contraste con fondo azul profundo (`#0B1E33`), título claro, input de email placeholder + botón dorado. Lista para reemplazar el input visual por el iframe de Beehiiv.
+
+### Verificación
+
+- `tsc --noEmit` y `next lint` pasan sin errores.
+
+---
+
 ## 2026-06-02 – Nueva visión del landing
 
 ### Objetivo ampliado

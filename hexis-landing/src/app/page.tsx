@@ -5,6 +5,7 @@ import { MarketPainSection } from "@/components/sections/MarketPainSection"
 import { HexisSystemSection } from "@/components/sections/HexisSystemSection"
 import { TestimonialSection } from "@/components/sections/TestimonialSection"
 import { PdfPreviewSection } from "@/components/sections/PdfPreviewSection"
+import { CtaSection } from "@/components/sections/CtaSection"
 
 export default function Home() {
   return (
@@ -21,11 +22,7 @@ export default function Home() {
 
         <PdfPreviewSection />
 
-        <section id="cta-form" className="mx-auto max-w-xl px-5 py-16 sm:py-16">
-          <p className="text-center text-sm text-muted-foreground">
-            [Aquí irá el formulario de descarga]
-          </p>
-        </section>
+        <CtaSection />
       </main>
       <Footer />
     </div>
