@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { FloatingHeading } from "@/components/ui/floating-heading"
 import { Eye, Target, Zap } from "lucide-react"
 
 const pillars = [
@@ -32,10 +33,9 @@ export function HexisSystemSection() {
           <span className="mb-4 inline-block rounded-full border border-[#E2E8F0] bg-white px-4 py-1 text-xs font-semibold tracking-wide text-[#2563EB]">
             EL MÉTODO
           </span>
-          <h2>
-            Un sistema probado que integra IA, práctica deliberada y
-            posicionamiento estratégico.
-          </h2>
+          <FloatingHeading>
+            <h2>Un sistema probado que integra IA, práctica deliberada y posicionamiento estratégico.</h2>
+          </FloatingHeading>
           <p className="mt-4 text-base text-[#4A5568] sm:text-lg">
             No es un curso más de CV. Es un enfoque completo que cambia la
             forma en que los reclutadores te perciben.

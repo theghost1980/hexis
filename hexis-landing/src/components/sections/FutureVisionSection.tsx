@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { FloatingHeading } from "@/components/ui/floating-heading"
 import { Users, GraduationCap, MessageCircle } from "lucide-react"
 
 const features = [
@@ -29,7 +30,9 @@ export function FutureVisionSection() {
     <section className="bg-white py-16 sm:py-16">
       <div className="mx-auto max-w-container px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <h2>Hexis es solo el comienzo.</h2>
+          <FloatingHeading>
+            <h2>Hexis es solo el comienzo.</h2>
+          </FloatingHeading>
           <p className="mt-4 text-base text-[#4A5568] sm:text-lg">
             El verdadero crecimiento viene de la práctica constante.
             Próximamente lanzaremos programas más profundos para quienes

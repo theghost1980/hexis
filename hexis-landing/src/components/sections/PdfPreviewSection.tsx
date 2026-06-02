@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { FloatingHeading } from "@/components/ui/floating-heading"
 import { Check } from "lucide-react"
 
 const items = [
@@ -20,7 +21,9 @@ export function PdfPreviewSection() {
     <section className="bg-[#F8F9FA] py-16 sm:py-16">
       <div className="mx-auto max-w-container px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <h2>Dentro del Método Hexis (28 páginas de acción)</h2>
+          <FloatingHeading>
+            <h2>Dentro del Método Hexis (28 páginas de acción)</h2>
+          </FloatingHeading>
         </div>
 
         <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
