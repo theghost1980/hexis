@@ -1,0 +1,345 @@
+# Roadmap de Prompts – Landing Hexis
+
+## CONFIGURACIÓN TÉCNICA BASE
+
+- **Proyecto:** `hexis-landing` (Next.js 14 + TypeScript + Tailwind + shadcn/ui)
+- **Repositorio:** GitHub → conectado a Vercel
+- **Dominio personalizado:** `hexis.fyi` (configurar en Vercel tras el despliegue)
+- **Logos:** en `/public/logos/` → `logo.svg`, `logo-white.svg`, `favicon.ico`
+- **Beehiiv:** formulario incrustado y automatización con welcome email que entrega el PDF
+- **Estilo visual:** Versión **light** del Style Bible del libro Método Hexis. Se usan las mismas tipografías (Plus Jakarta Sans, JetBrains Mono) pero con una paleta clara adaptada: fondo blanco o gris muy claro, texto oscuro, detalles en azul profundo y un acento dorado para CTAs.
+
+## NUEVA ARQUITECTURA DE MARCA Y COPY
+
+**Concepto central:**  
+Hexis = hábito + maestría + ventaja competitiva construida con práctica.  
+El Método Demo‑First es la primera manifestación concreta de ese sistema: usar la práctica real (construir demos) para destacar, en lugar de solo enviar CVs.
+
+**Taglines en español (incorporadas en la landing):**
+
+- “Construye ventaja a través de la práctica.”
+- “Sistemas modernos para profesionales ambiciosos.”
+- “Habilidad. Ejecución. Crecimiento.”
+- “Vuélvete antifrágil en la era de la IA.”
+- “Crecimiento práctico para profesionales modernos.”
+
+**Promesa del lead magnet (PDF):**  
+El Método Hexis te enseña a dejar de ser un CV anónimo y convertirte en un solucionador visible usando la práctica real (demos) y la IA como acelerador.
+
+**Estructura de la landing:**
+
+1.  **Hero:** Hexis + tagline principal + CTA.
+2.  **El dolor del mercado actual:** rechazos, saturación.
+3.  **El sistema Hexis:** los 8 pasos visuales.
+4.  **Testimonio real:** tu historia de 200 rechazos → demo → entrevista.
+5.  **Contenido del PDF:** Método Hexis.
+6.  **CTA para descargar el PDF:** + lista de espera (Beehiiv).
+7.  **Visión de futuro:** cohortes, mentorías, comunidad Hexis.
+8.  **Footer:** con logo Hexis, links y enlace a soporte.
+
+**Página adicional:**
+
+- `/soporte`: guía de resolución de fallas (no descargable, protegida contra copia).
+
+---
+
+## FASE 0: GENERACIÓN COMPLETA DE LA LANDING HEXIS (PROMPTS PARA TERMINAL)
+
+Todos los prompts suponen que tienes un agente de IA (Codex CLI, Aider, Cursor o el chat de V0) y que ejecutas cada paso en orden.
+
+### Prompt 0.1 – Inicializar proyecto con el branding Hexis
+
+```text
+Eres un desarrollador frontend senior. Crea un proyecto Next.js 14 con App Router, TypeScript y Tailwind CSS. Inicializa shadcn/ui con el tema "default" y configura los metadatos base:
+
+- Nombre del proyecto: "hexis-landing"
+- title: "Hexis – Construye ventaja a través de la práctica"
+- description: "Sistemas modernos para profesionales ambiciosos. Descarga el Método Hexis y accede a soporte premium."
+
+El diseño visual debe seguir el "Style Bible" del libro Método Hexis, pero en su versión light. Usa las mismas tipografías (Plus Jakarta Sans para texto, JetBrains Mono para detalles técnicos). La paleta de colores será:
+- Fondo principal: blanco (#FFFFFF) o gris muy claro (#F8F9FA).
+- Texto principal: gris oscuro (#333333).
+- Títulos: azul profundo (#1A2A4A).
+- Acento para CTAs y elementos destacados: dorado (#F59E0B).
+- Bordes y separadores sutiles.
+
+Copia la carpeta 'logos' que te proporcionaré más tarde en /public/logos/. Por ahora, deja un placeholder en el componente Navbar para el logo (usa un texto 'Hexis' estilizado). Configura también un favicon que apunte a /logos/favicon.ico.
+
+Muestra la estructura del proyecto y los comandos para correr en local.
+```
+
+### Prompt 0.2 – Layout base y Navbar con logo real
+
+```text
+Modifica el layout principal (src/app/layout.tsx) para incluir una barra de navegación fija, transparente al inicio y con fondo sólido al hacer scroll. Usa el estilo visual light definido (fondo blanco, texto oscuro).
+
+La barra debe tener:
+- A la izquierda: logo de Hexis. Usa la imagen /logos/logo.svg (importa desde next/image). Alt: "Hexis". El logo debe enlazar a la raíz.
+- A la derecha: un botón de shadcn/ui con texto "Descargar el Método" que haga scroll suave a la sección del formulario (id="cta-form").
+- El fondo del navbar debe volverse blanco con sombra suave al hacer scroll más de 50px (usa un state y el evento scroll).
+- Asegura que sea responsive: en móvil, logo a la izquierda, botón a la derecha (solo icono de descarga).
+
+Además, crea un Footer con:
+- Logo Hexis en pequeño.
+- Tagline: "Construye ventaja a través de la práctica."
+- Enlaces: LinkedIn, GitHub, email, y uno nuevo a "/soporte" con el texto "Centro de Ayuda".
+- Copyright: © 2026 Hexis. Todos los derechos reservados.
+
+Todo debe verse premium y minimalista, con las tipografías del Style Bible.
+```
+
+### Prompt 0.3 – Hero Section con nuevo mensaje de marca
+
+```text
+Crea el componente HeroSection.tsx en src/components/sections/. Usa el estilo visual light.
+
+Estructura en dos columnas (mobile: apiladas). Columna izquierda:
+- Un badge pequeño: "HEXIS · MAYO 2026".
+- Título principal: "El sistema que convierte práctica en oportunidades reales."
+- Subtítulo: "De 200 rechazos a tener al CTO revisando tu demo en 24 horas. Descarga el Método Hexis y aprende a destacar usando la IA como ventaja competitiva."
+- Dos botones: uno primario (dorado) "Descargar el PDF Gratis" (ancla a #cta-form) y uno secundario (borde azul) "Cómo funciona" (ancla a la sección de pasos).
+- Pequeño texto: "Sin spam. Acceso inmediato al método + lista de espera del programa avanzado."
+
+Columna derecha:
+- Una imagen placeholder de alta calidad (la generaremos después). La imagen debe evocar tecnología, práctica y crecimiento (ej. un cristal hexagonal brillante).
+
+Fondo: blanco o con un sutil gradiente a gris muy claro. Tipografías grandes, espaciado generoso, animación fade-in.
+```
+
+### Prompt 0.4 – Sección "El mercado cambió" (problema + urgencia)
+
+```text
+Crea MarketPainSection.tsx. Usa el estilo visual light.
+
+Título: "El mercado tech no perdona. La práctica sí."
+Subtítulo: "Cada oferta recibe 500 aplicaciones en horas. La mayoría son CVs genéricos. Tú puedes ser la excepción."
+
+Luego tres tarjetas con íconos (lucide-react) describiendo los dolores:
+1. "ATS que descartan tu perfil sin leerlo."
+2. "Entrevistas que nunca llegan, aunque tienes la experiencia."
+3. "La IA generativa hace que cualquier CV luzca 'perfecto'. La única prueba real es lo que construyes."
+
+Incluye una estadística: "El 87 % de los reclutadores afirma que un portafolio con proyectos reales pesa más que el CV."
+
+Las tarjetas deben tener un borde sutil y una ligera sombra para destacar sobre el fondo claro. Diseño responsive.
+```
+
+### Prompt 0.5 – Sección "El Sistema Hexis" (los 8 pasos)
+
+```text
+Crea HexisSystemSection.tsx. Usa el estilo visual light.
+
+Título: "El Sistema Hexis: práctica deliberada + IA".
+Subtítulo: "8 pasos para construir una ventaja real y conseguir la oportunidad que mereces."
+
+Muestra una línea de tiempo vertical (escritorio) o tarjetas numeradas (móvil). Cada paso con un ícono, título y descripción breve:
+
+1. Optimiza tu perfil con IA
+2. Investigación profunda de ofertas
+3. Extrae los pain points de la empresa
+4. Diseña un demo que los resuelva
+5. Construye y despliega tu proyecto
+6. Documenta el código como propuesta de valor
+7. Aplica con el demo como prueba irrefutable
+8. Prepárate con simulaciones de IA
+
+Debajo, un botón "Quiero aplicar el sistema" que lleve al formulario.
+Usa la paleta de Hexis adaptada al modo claro. Animaciones suaves.
+```
+
+### Prompt 0.6 – Testimonio real (tu historia con el Método Hexis)
+
+```text
+Crea TestimonialSection.tsx. Usa el estilo visual light. Fondo ligeramente diferente (gris muy claro), con una tarjeta central que contenga:
+
+- Avatar placeholder (luego pondremos tu foto real generada por IA).
+- Nombre: Saturno Mangieri, Ing. de Software.
+- Testimonio en primera persona: "Después de 200 rechazos aplastantes, descubrí que la práctica real es lo único que impresiona. Apliqué el Sistema Hexis, construí una demo en 3 días y en menos de 24 horas la consultora la envió al cliente final. El CTO dijo: 'Esto es exactamente lo que necesitábamos'. Ahora comparto este método para que tú también dejes de ser un CV más."
+- Debajo, logos de tecnologías (Next.js, Node, IA, etc.) en pequeño y en escala de grises.
+- Un botón "Conoce el sistema" que lleve a los pasos.
+
+Incluye un borde sutil y una sombra suave en la tarjeta. Texto centrado.
+```
+
+### Prompt 0.7 – Contenido del PDF (lead magnet "Método Hexis")
+
+```text
+Crea PdfPreviewSection.tsx. Usa el estilo visual light.
+
+Título: "Dentro del Método Hexis (30 páginas de acción)".
+Dos columnas (móvil: una columna). A la izquierda, un mockup del PDF (imagen placeholder que luego generaremos). A la derecha, un listado con íconos de check (lucide-react):
+
+- El script exacto para renovar tu CV con IA.
+- Deep research de ofertas en minutos.
+- Prompts para extraer dolores de negocio de cualquier vacante.
+- Cómo diseñar un demo imbatible en 6 horas.
+- Plantilla de README que vende tu candidatura.
+- El mensaje de correo que abre puertas con CTOs.
+- Preparación de entrevistas con simulador de IA.
+- Checklist de despliegue gratuito (Vercel, Railway, Supabase).
+
+Debajo, un botón dorado "Descargar el PDF Gratis" (ancla al formulario). Pequeño texto: "Al descargarlo entras a la comunidad Hexis y a la lista de espera del programa avanzado."
+```
+
+### Prompt 0.8 – CTA + formulario Beehiiv (captura real)
+
+```text
+Crea CtaSection.tsx con id="cta-form". Usa el estilo visual light.
+
+Título: "Consigue el Método Hexis ahora".
+Párrafo: "Déjame tu correo y recibe el PDF al instante. Además, estarás dentro de la lista de espera para las futuras cohortes y mentorías de Hexis, con beneficios exclusivos por llegar temprano."
+
+Inserta el formulario de Beehiiv:
+- Crea un iframe con el código que te proporcionaré (Beehiiv form). Por ahora, coloca un formulario visual con input de email y botón "Enviar", que luego reemplazaremos con el iframe de Beehiiv.
+- Añade un texto de privacidad: "Respetamos tu privacidad. Cancelas cuando quieras."
+- El diseño debe ser limpio, centrado, con un fondo azul muy oscuro (#1A2A4A) en esta sección para contrastar, con texto claro. El botón debe ser grande, dorado (#F59E0B) y visible.
+```
+
+### Prompt 0.9 – Visión de futuro (escalabilidad del ecosistema Hexis)
+
+```text
+Crea FutureVisionSection.tsx. Usa el estilo visual light.
+
+Título: "Hexis es solo el comienzo."
+Texto: "El verdadero crecimiento viene de la práctica constante. Próximamente lanzaremos: Cohortes guiadas de 4 semanas, Mentorías 1:1, y una Comunidad privada de profesionales ambiciosos que construyen proyectos reales con IA. Al unirte hoy, aseguras tu lugar con acceso anticipado y precio fundador."
+
+Tres tarjetas con íconos (comunidad, mentoría, cohorte) y una breve descripción cada una. Botón final: "Reserva tu lugar en la lista de espera" (ancla al formulario).
+```
+
+### Prompt 0.10 – Responsividad final, animaciones y detalles de marca
+
+```text
+Revisa todos los componentes y ajusta los estilos para mobile (<375px), tablet y desktop. Añade animaciones con framer-motion (fade-in, slide-up) a las secciones. Asegúrate de que el logo de Hexis se vea nítido, los colores respeten la paleta del modo claro (fondo #FFFFFF, títulos #1A2A4A, CTAs dorados #F59E0B, texto #333333). Las tipografías deben ser Plus Jakarta Sans y JetBrains Mono. Optimiza las imágenes placeholder. Muestra el resultado final.
+```
+
+---
+
+## FASE 1.5: PÁGINA DE SOPORTE Y RESOLUCIÓN DE FALLAS
+
+### Prompt 1.5.1 – Página de soporte (/soporte)
+
+```text
+Crea una nueva página en `src/app/soporte/page.tsx` con el mismo layout del landing (Navbar y Footer).
+
+Esta página será una guía de resolución de problemas para los compradores del libro Método Hexis. Debe verse profesional, premium y usar el mismo estilo visual que el landing (modo claro, tipografías Plus Jakarta Sans y JetBrains Mono, paleta adaptada).
+
+Estructura de la página:
+1. Título: "Centro de Ayuda Hexis"
+2. Subtítulo: "Resuelve cualquier inconveniente con tu compra o lectura del Método Hexis."
+3. Acordeón de preguntas frecuentes (usa shadcn/ui Accordion) con al menos estas categorías:
+
+   a) **Problemas con la compra en Gumroad**
+      - No recibí el enlace de descarga
+      - El pago fue rechazado
+      - Quiero un reembolso
+
+   b) **Problemas al abrir el PDF**
+      - El PDF se ve con fondo negro y logo, pero sin texto (visor de Android)
+      - Solución: Instalar Adobe Acrobat Reader desde Play Store. Explicar que los visores integrados de algunos dispositivos no renderizan correctamente fuentes y fondos complejos. Recomendar abrir el PDF siempre con Acrobat Reader.
+      - Error al descargar en iPhone/iPad
+      - El archivo pesa mucho y no se descarga
+
+   c) **Problemas con el contenido**
+      - Los enlaces dentro del PDF no funcionan
+      - No encuentro el grupo de WhatsApp de mentoría
+      - Cómo acceder a los recursos adicionales
+
+4. Cada respuesta debe ser clara, paso a paso y amigable.
+5. Incluye una sección final: "¿No encuentras solución? Escríbeme a saturno@hexis.fyi y te responderé en menos de 24 horas."
+6. Añade un aviso sutil: "Este contenido es solo para uso personal. No está permitida su redistribución."
+
+Diseño:
+- Fondo: #F8F9FA.
+- Títulos: #1A2A4A.
+- Texto: #333333.
+- Acordeón con bordes sutiles y un ícono de ayuda (HelpCircle de lucide-react).
+- Responsive, legible, sin animaciones excesivas.
+```
+
+### Prompt 1.5.2 – Proteger contra copia en la página de soporte
+
+```text
+Añade a la página de soporte (`src/app/soporte/page.tsx`) las siguientes protecciones ligeras contra copia no autorizada, manteniendo la usabilidad para lectura:
+
+1. Agrega un componente cliente (si usas App Router) o un `useEffect` que:
+   - Deshabilite el menú contextual (clic derecho) en el contenedor del artículo: `onContextMenu={(e) => e.preventDefault()}`.
+   - Inserte un CSS que aplique `user-select: none` y `-webkit-user-select: none` al `div` principal del contenido.
+2. Muestra un pequeño aviso (un `Alert` de shadcn/ui) en la parte superior del artículo: "ℹ️ Este contenido es para uso personal. Gracias por respetar el trabajo del autor."
+3. La protección debe ser ligera (no bloquea la lectura ni la navegación por teclado) pero suficiente para disuadir la copia masiva.
+
+Aplica esta protección solo a esta página.
+```
+
+---
+
+## CONFIGURACIÓN DE BEEHIIV PARA HEXIS
+
+1. Crea tu cuenta en beehiiv.com y configura una publicación llamada **"Hexis Insider"**.
+2. Ve a **Grow → Forms**, crea un formulario con:
+   - Título: "Descarga el Método Hexis + Lista de espera".
+   - Campos: email.
+   - Mensaje de éxito: "Revisa tu bandeja de entrada para el PDF y tu acceso anticipado."
+3. Copia el código del iframe e insértalo en `CtaSection.tsx` en lugar del formulario visual.
+4. Crea una **Automation** que se dispare al suscribirse a ese formulario.
+   - **Acción: Enviar email** con asunto: "Tu Método Hexis está listo".
+   - Contenido: enlace de descarga directa al PDF (alojado en `/public/pdf/metodo-hexis.pdf` o en Drive).
+   - Incluye el mensaje: "Bienvenido a Hexis. Estás en la lista de espera para el programa avanzado. Te avisaré en cuanto abra plazas."
+5. Prueba la suscripción con un correo de test.
+
+---
+
+## IMÁGENES PARA LA LANDING HEXIS
+
+Vamos a generar imágenes coherentes con la estética moderna, oscura y tecnológica, usando IA.
+
+### Logo de Hexis (ya lo tienes)
+
+Asegúrate de tener `logo.svg` y `logo-white.svg` en `/public/logos/`.
+
+### Imagen 1 – Hero (derecha) [IMAGEN_HERO]
+
+```text
+A futuristic abstract 3D composition: a glowing hexagonal crystal (representing Hexis) hovering above a dark keyboard, with luminous blue lines and gears turning slowly around it, symbolizing practice and skill building. Dark background with subtle blue and gold light rays. 8k, vector shading, professional tech aesthetic.
+```
+
+### Imagen 2 – PDF Mockup [IMAGEN_PDF]
+
+```text
+A premium 3D mockup of a dark-covered digital report titled "Método Hexis" in gold and blue typography, floating on a clean background with soft shadows, pages slightly fanned out, revealing diagrams and bullet points inside. Clay render style, studio lighting, isolated.
+```
+
+### Imagen 3 – Testimonio (avatar) [IMAGEN_AVATAR]
+
+```text
+A professional circular avatar of a confident male Latino software engineer, smiling warmly, wearing a dark tech jacket, set against a blurred modern co-working background with blue neon lights. Realistic digital illustration, high detail.
+```
+
+Guarda estas imágenes en `/public/images/` y referencia en los componentes usando `next/image`.
+
+---
+
+## DESPLIEGUE EN VERCEL CON DOMINIO HEXIS.FYI
+
+1. Sube el proyecto a GitHub en un repo llamado `hexis-landing`.
+2. En Vercel, importa el repo y despliega.
+3. Una vez desplegado, ve a **Settings → Domains** y agrega `hexis.fyi`.
+4. Configura los registros DNS de tu dominio (en tu proveedor) apuntando a Vercel. Normalmente un registro A o CNAME. Vercel te dará las instrucciones exactas.
+5. Con HTTPS automático, tu landing estará viva en minutos.
+
+---
+
+## PRÓXIMOS PASOS DE HEXIS (FASES FUTURAS)
+
+La landing está preparada para escalar:
+
+- **Fase 2:** Blog `/blog` con artículos sobre construcción de demos, IA para devs, práctica deliberada.
+- **Fase 3:** Página de ventas `/cohorte` para el programa pago (Stripe + Beehiiv).
+- **Fase 4:** Comunidad privada en Discord/Skool con retos semanales de construcción.
+
+Todo crece orgánicamente desde la misma base técnica y desde la misma promesa de marca: **Hexis, ventaja construida con práctica.**
+
+---
+
+Tu primer movimiento: ejecuta el Prompt 0.1 en este mismo chat (o en tu terminal con un agente). Luego sigue el orden.  
+Cuando tengas dudas con el logo o necesites ajustar el diseño, pídemelo.  
+**Hexis ya no es solo una idea; es tu activo digital empezando hoy.**
