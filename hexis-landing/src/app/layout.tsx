@@ -30,6 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="ac4386af-833f-4037-8935-a73d331041be"
+        />
+      </head>
       <body
         className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
