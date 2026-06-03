@@ -1,3 +1,5 @@
+"use client"
+
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/HeroSection"
@@ -8,8 +10,12 @@ import { TestimonialSection } from "@/components/sections/TestimonialSection"
 import { PdfPreviewSection } from "@/components/sections/PdfPreviewSection"
 import { CtaSection } from "@/components/sections/CtaSection"
 import { FutureVisionSection } from "@/components/sections/FutureVisionSection"
+import { ExitModal } from "@/components/ExitModal"
+import { useExitIntent } from "@/hooks/useExitIntent"
 
 export default function Home() {
+  const { showModal, closeModal } = useExitIntent()
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
@@ -31,6 +37,7 @@ export default function Home() {
         <CtaSection />
       </main>
       <Footer />
+      {showModal && <ExitModal onClose={closeModal} />}
     </div>
   )
 }
