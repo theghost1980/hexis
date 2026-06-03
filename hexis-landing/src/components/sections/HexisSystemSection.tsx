@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { FloatingHeading } from "@/components/ui/floating-heading"
-import { Eye, Target, Zap } from "lucide-react"
+import { Eye, Target, Wallet, Zap } from "lucide-react"
 
 const pillars = [
   {
@@ -75,7 +75,7 @@ export function HexisSystemSection() {
           </p>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
             variant="cta"
             size="lg"
@@ -87,6 +87,15 @@ export function HexisSystemSection() {
           >
             Descubrir el método completo
           </Button>
+          <a
+            href="https://shop.hexis.fyi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-11 items-center justify-center whitespace-nowrap rounded-md bg-[#0B1E33] px-8 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:bg-[#162D4A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E33] focus-visible:ring-offset-2"
+          >
+            <Wallet className="mr-2 h-5 w-5" />
+            Te lo compro
+          </a>
         </div>
       </div>
     </section>
