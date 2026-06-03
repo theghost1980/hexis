@@ -348,6 +348,178 @@ La landing está preparada para escalar:
 - **Fase 2:** Blog `/blog` con artículos sobre construcción de demos, IA para devs, práctica deliberada.
 - **Fase 3:** Página de ventas `/cohorte` para el programa pago (Stripe + Beehiiv).
 - **Fase 4:** Comunidad privada en Discord/Skool con retos semanales de construcción.
+- **Fase 5 (Pendiente):** Pagos locales Venezuela + geolocalización — ver detalle abajo.
+
+---
+
+## FASE 5 (PENDIENTE): Pagos locales Venezuela + geolocalización
+
+**Contexto:**  
+Proyecto "Método Hexis". Landing page en Next.js desplegada en Netlify (`hexis.fyi`).  
+Actualmente el checkout global usa Gumroad con subdominio `shop.hexis.fyi`.  
+Se requiere añadir soporte para pagos locales en Venezuela (Pago Móvil, transferencias) y geolocalización para mostrar una oferta especial a visitantes de Venezuela.
+
+**Prioridad:** Media (no bloquea el MVP, pero es alto impacto para el mercado venezolano).
+
+**Dependencias:** Ninguna con otras fases. Puede ejecutarse en paralelo con Fase 2.
+
+---
+
+### Tareas ordenadas por prioridad
+
+#### 1. Subdominios en Namecheap + Netlify
+
+| Subdominio | Propósito |
+|------------|-----------|
+| `pay.hexis.fyi` | Redirigir a checkout internacional alternativo (PayPal o Gumroad) |
+| `pago.hexis.fyi` | Página de pago local venezolana con instrucciones |
+
+**Acciones concretas:**
+- En Namecheap: añadir registros CNAME para `pay` y `pago` → `hexis.netlify.app`
+- En Netlify: agregar los dominios como alias (Domain management → Add domain alias) para HTTPS.
+- Verificar SSL.
+
+**Estimación:** ~1 hora (gestión DNS + Netlify).  
+**Obstáculos:** Ninguno.
+
+---
+
+#### 2. Detección de geolocalización (país Venezuela)
+
+**Dónde:** Landing page principal (`hexis.fyi`).
+
+**Opciones técnicas:**
+
+| Opción | Pros | Contras |
+|--------|------|---------|
+| Netlify Edge Functions | No expone API keys, rendimiento, sin costo extra en plan Pro | Requiere configurar edge-functions en Netlify |
+| Cliente-side (`ipapi.co`) | Simple, sin configuración de infra | Llamada externa, posible bloqueo de adblockers |
+
+**Si se usa Edge Function:**
+- Crear `netlify/edge-functions/geo-offer.ts`
+- Inyectar cabecera `x-visitor-country` que React lea desde `getServerSideProps` o desde el cliente.
+
+**Si se usa cliente-side:**
+- Fetch a `https://ipapi.co/json/`
+- Leer `country_code`
+- Mostrar/ocultar sección según resultado.
+
+**Estimación:** 4-6 horas.  
+**Obstáculos:** Límite de 125k invocaciones/mes en Netlify Edge Functions (plan Pro). ipapi.co tiene límite de 1000 req/día en plan gratis.
+
+---
+
+#### 3. Sección dinámica geolocalizada (solo Venezuela)
+
+**Dónde:** En `hexis.fyi`, entre el Hero y la sección de dolor de mercado, o como un banner sticky.
+
+**Diseño propuesto:**
+```
+┌─────────────────────────────────────────────┐
+│  🇻🇪 ¡Oferta especial para Venezuela!       │
+│                                             │
+│  Sabemos que el acceso a divisas es         │
+│  difícil. Por eso te ofrecemos el Método    │
+│  Hexis en bolívares al tipo de cambio       │
+│  oficial del día.                           │
+│                                             │
+│  [Pagar en bolívares → pago.hexis.fyi]      │
+│  [Pagar con PayPal / Tarjeta (USD)]         │
+└─────────────────────────────────────────────┘
+```
+
+- Botón primario: "Pagar en bolívares – Ir a pago.hexis.fyi"
+- Botón secundario: "Pagar con PayPal / Tarjeta (USD)" → redirige a `pay.hexis.fyi`
+- La sección **NO debe renderizarse** para visitantes fuera de Venezuela.
+- La tarjeta debe tener un fondo suave (ej. gradiente amarillo/azul) para destacar.
+
+**Estimación:** 3-4 horas.  
+**Obstáculos:** Pruebas de geolocalización (usar VPN para simular Venezuela).
+
+---
+
+#### 4. Página de pago local (`pago.hexis.fyi`)
+
+**Dónde:** Nueva página en el proyecto, ruta `/pago` o desplegada como sitio separado en Netlify apuntando a una carpeta específica.
+
+**Estructura:**
+1. **Header:** Logo Hexis + título "Pago Local — Método Hexis"
+2. **Instrucciones paso a paso:**
+   - Calcular monto en bolívares (según tasa BCV, mostrada en vivo o actualizable manualmente).
+   - Mostrar datos bancarios (banco, titular, cédula, número de cuenta) y número de Pago Móvil.
+   - Indicar que el pago debe ser identificado con el correo electrónico del comprador.
+3. **Formulario de comprobante:**
+   - Nombre completo
+   - Correo electrónico
+   - Número de teléfono / WhatsApp
+   - Subir imagen del comprobante (limitación: en Netlify, subir a Supabase Storage o enviar por email con SendGrid)
+   - Botón: "Enviar comprobante"
+4. **Post-envío:**
+   - Mensaje de confirmación: "Recibimos tu comprobante. Te enviaremos el PDF en 12-24 horas a tu correo. Si tienes dudas, escríbenos a saturno@hexis.fyi."
+   - Enviar email automático al admin con los datos.
+
+**Almacenamiento de datos:** Google Sheets (vía Google Forms API o embebido) o Supabase (tabla `pagos_locales`).
+
+**Estimación:** 16-24 horas (incluye diseño, formulario, backend de almacenamiento, email automático).  
+**Obstáculos:**
+- Subida de archivos en Netlify requiere servicio externo (Supabase Storage, Cloudinary, o enviar por email).
+- Tasa de cambio: si se consume API de BCV, puede fallar si cambia el endpoint. Alternativa: tasa fija actualizable manualmente cada semana.
+- Pago Móvil es una red privada — no hay API pública para verificar pagos. Todo es manual hasta integrar con servicios como PagoFlash.
+
+---
+
+#### 5. Página de redirección (`pay.hexis.fyi`)
+
+**Opción A (simple):** Redirección Netlify — crear `_redirects` o `netlify.toml`:
+```
+/pay/*  https://shop.hexis.fyi  301
+```
+
+**Opción B (más control):** Página simple con:
+- Logo Hexis
+- Botón "Comprar con PayPal" (integrar SDK de PayPal con botón de compra)
+- Texto: "También disponible en Gumroad" → enlace a `shop.hexis.fyi`
+
+**Opción C (completa):** Página con dos botones:
+1. PayPal directo (botón generado desde PayPal Business)
+2. Gumroad como respaldo
+
+Recomendación: Opción A para MVP rápido, migrar a Opción C si se necesita.
+
+**Estimación:** 1-2 horas.  
+**Obstáculos:** Ninguno.
+
+---
+
+#### 6. Pruebas de integración
+
+- ✅ Venezuela → se muestra oferta especial + botones funcionan
+- ✅ Otros países → NO se muestra la sección
+- ✅ `pago.hexis.fyi` → accesible, formulario envía datos
+- ✅ `pay.hexis.fyi` → redirige a Gumroad o PayPal
+- ✅ SSL activo en todos los subdominios
+- ✅ El formulario de `pago` llega al admin y se almacena
+
+**Estimación:** 2-4 horas.
+
+---
+
+### Resumen de tiempos
+
+| Tarea | Estimación | Dependencias |
+|-------|-----------|-------------|
+| 1. Subdominios | ~1h | Ninguna |
+| 2. Geolocalización | ~5h | Ninguna |
+| 3. Sección dinámica | ~4h | Tarea 2 |
+| 4. Página pago local | ~20h | Tarea 1 |
+| 5. Redirección pay | ~2h | Tarea 1 |
+| 6. Pruebas | ~3h | Tareas 2-5 |
+| **Total** | **~35h** | — |
+
+**Nota:** Tarea 1 puede iniciarse inmediatamente (no requiere deploy de código, solo DNS).  
+**Todas las tareas están marcadas como pendientes** — no se implementan hasta después del lanzamiento inicial (el MVP ya funciona con Gumroad).
+
+---
 
 Todo crece orgánicamente desde la misma base técnica y desde la misma promesa de marca: **Hexis, ventaja construida con práctica.**
 
