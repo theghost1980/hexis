@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowDown } from "lucide-react"
+import { ShoppingBag } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -32,29 +32,21 @@ export function HeroSection() {
             ventaja competitiva.
           </p>
 
-          <form
-            className="mt-8 flex w-full flex-col gap-3 sm:flex-row"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              placeholder="tu@correo.com"
-              required
-              className="flex-1 rounded-lg border border-[#E2E8F0] bg-white px-4 py-3 text-sm text-[#1A2B3C] placeholder-[#94A3B8] outline-none ring-[#F5A623] transition-all focus:ring-2"
-            />
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F5A623] px-6 py-3 text-sm font-semibold text-[#1A2B3C] shadow-sm transition-all hover:bg-[#D97706]"
+          <div className="group relative mt-8 inline-block">
+            <div className="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-[#0B1E33] px-4 py-2 text-sm font-semibold text-[#F5A623] shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100">
+              <span className="text-white">🔥 Aprovecha el descuento de hoy </span>$27
+              <div className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-[#0B1E33]" />
+            </div>
+            <a
+              href="https://shop.hexis.fyi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#F5A623] px-8 py-3 text-sm font-semibold text-[#1A2B3C] shadow-sm transition-all hover:bg-[#D97706]"
             >
-              Descargar el Método
-              <ArrowDown className="h-4 w-4" />
-            </button>
-          </form>
-
-          <p className="mt-3 text-xs text-[#94A3B8]">
-            Sin spam. Acceso inmediato al método + lista de espera del
-            programa avanzado.
-          </p>
+              <ShoppingBag className="h-5 w-5" />
+              Comprar ahora
+            </a>
+          </div>
         </div>
       </div>
     </section>
