@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowDown } from "lucide-react"
+import { ShoppingBag } from "lucide-react"
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -33,17 +33,16 @@ export function Navbar() {
           />
         </Link>
 
-        <Button
-          variant="cta"
-          size="sm"
-          className="gap-2 rounded-lg"
-          onClick={() =>
-            document.getElementById("cta-form")?.scrollIntoView({ behavior: "smooth" })
-          }
+        <a
+          href="https://shop.hexis.fyi"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <span className="hidden sm:inline">Descargar el Método</span>
-          <ArrowDown className="h-4 w-4" />
-        </Button>
+          <Button variant="cta" size="sm" className="gap-2 rounded-lg">
+            <span className="hidden sm:inline">Comprar ahora</span>
+            <ShoppingBag className="h-4 w-4" />
+          </Button>
+        </a>
       </div>
     </header>
   )
