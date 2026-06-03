@@ -124,26 +124,18 @@ Incluye una estadística: "El 87 % de los reclutadores afirma que un portafolio 
 Las tarjetas deben tener un borde sutil y una ligera sombra para destacar sobre el fondo claro. Diseño responsive.
 ```
 
-### Prompt 0.5 – Sección "El Sistema Hexis" (los 8 pasos)
+### Prompt 0.5 – Sección "El Sistema Hexis"
 
 ```text
 Crea HexisSystemSection.tsx. Usa el estilo visual light.
 
 Título: "El Sistema Hexis: práctica deliberada + IA".
-Subtítulo: "8 pasos para construir una ventaja real y conseguir la oportunidad que mereces."
+Subtítulo: "Un sistema integral para construir una ventaja real y conseguir la oportunidad que mereces."
 
-Muestra una línea de tiempo vertical (escritorio) o tarjetas numeradas (móvil). Cada paso con un ícono, título y descripción breve:
+Muestra una línea de tiempo vertical (escritorio) o tarjetas numeradas (móvil). Cada paso con un ícono y título genérico (sin revelar detalles del método). Usa 3 pilares de alto nivel en lugar de pasos específicos: Visibilidad real, Ofertas como oportunidades, IA como ventaja.
 
-1. Optimiza tu perfil con IA
-2. Investigación profunda de ofertas
-3. Extrae los pain points de la empresa
-4. Diseña un demo que los resuelva
-5. Construye y despliega tu proyecto
-6. Documenta el código como propuesta de valor
-7. Aplica con el demo como prueba irrefutable
-8. Prepárate con simulaciones de IA
-
-Debajo, un botón "Quiero aplicar el sistema" que lleve al formulario.
+Debajo, un botón "Descubrir el método completo" que lleve al formulario.
+Incluye un callout: "No revelamos el sistema abiertamente porque quienes lo aplican en serio no necesitan atajos."
 Usa la paleta de Hexis adaptada al modo claro. Animaciones suaves.
 ```
 
