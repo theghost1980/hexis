@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 export function TestimonialSection() {
   return (
     <section className="bg-[#F8F9FA] py-16 sm:py-16">
@@ -41,6 +42,19 @@ export function TestimonialSection() {
             <span className="text-[#CBD5E1]">|</span>
             <span>Vercel</span>
           </div>
+
+          <Button
+            variant="outline-blue"
+            size="lg"
+            className="mt-8"
+            onClick={() =>
+              document
+                .getElementById("hexis-system")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Conoce el sistema
+          </Button>
         </div>
       </div>
     </section>
