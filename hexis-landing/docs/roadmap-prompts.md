@@ -227,7 +227,55 @@ Revisa todos los componentes y ajusta los estilos para mobile (<375px), tablet y
 
 ---
 
-## FASE 1.5: PÁGINA DE SOPORTE Y RESOLUCIÓN DE FALLAS
+## FASE 0.11 – PRE-LANZAMIENTO: BLINDAR LANDING (TODOs URGENTES)
+
+Estos pasos deben ejecutarse antes del deploy a producción. Son correcciones y mejoras que blindan la página contra errores y optimizan conversión.
+
+### 🔴 Prioridad Alta (bloqueantes)
+
+| # | Archivo | Problema | Solución |
+|:-:|---------|----------|----------|
+| 1 | `src/components/sections/TestimonialSection.tsx` | Sin CTA después del testimonio (pico emocional perdido) | Agregar botón "Conoce el sistema" que haga scroll a `#hexis-system` |
+| 2 | `netlify.toml` | `publish = "hexis-landing/out"` es incorrecto — es relativo a `base`, debería ser `publish = "out"` | Cambiar `publish = "hexis-landing/out"` → `publish = "out"` |
+| 3 | `src/components/sections/KitFormEmbed.tsx` | Formulario Kit en inglés ("Subscribe to get our latest content by email") | Cambiar el `subheader` del form HTML a texto en español |
+
+### 🟡 Prioridad Media
+
+| # | Archivo | Problema | Solución |
+|:-:|---------|----------|----------|
+| 4 | `src/components/footer.tsx` | Email `hola@hexis.com` no coincide con el usado en soporte | Cambiar a `saturno@hexis.fyi` |
+| 5 | `src/components/footer.tsx` | LinkedIn y GitHub apuntan a URLs genéricas | Reemplazar con URLs reales de Hexis o del autor |
+| 6 | `src/app/layout.tsx` | Faltan Open Graph y Twitter Cards para redes sociales | Agregar `metadata.openGraph` y `metadata.twitter` al layout |
+
+### 🟢 Prioridad Baja (mejora)
+
+| # | Archivo | Problema | Solución |
+|:-:|---------|----------|----------|
+| 7 | `src/components/navbar.tsx` | No hay acceso directo a `/soporte` desde el navbar | Agregar link "Centro de Ayuda" o icono `HelpCircle` junto al botón de compra |
+
+### Prompt para ejecutar (copiar y pegar en el agente):
+
+```text
+Ejecuta los TODOs urgentes de la Fase 0.11 del roadmap de Hexis en el siguiente orden:
+
+1. En TestimonialSection.tsx: agrega un botón "Conoce el sistema" (variant="outline-blue") debajo de las etiquetas de tecnología, que haga scroll suave a la sección con id="hexis-system".
+
+2. Corrige netlify.toml: cambia publish = "hexis-landing/out" por publish = "out" (es relativo a base).
+
+3. En KitFormEmbed.tsx: cambia el subheader "Subscribe to get our latest content by email" por texto en español: "Déjame tu correo y recibe el PDF al instante."
+
+4. En footer.tsx: cambia el email de "hola@hexis.com" a "saturno@hexis.fyi".
+
+5. En footer.tsx: actualiza las URLs de LinkedIn y GitHub a las reales del proyecto (pregunta al usuario cuáles son si no las tienes).
+
+6. En app/layout.tsx: agrega openGraph y twitter metadata con title, description, url = "https://hexis.fyi" y las imágenes del hero.
+
+7. En navbar.tsx: agrega un link a "/soporte" con un icono HelpCircle de lucide-react.
+
+Verifica todo con tsc --noEmit antes de finalizar.
+```
+
+---
 
 ### Prompt 1.5.1 – Página de soporte (/soporte)
 
