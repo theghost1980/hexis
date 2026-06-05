@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { ArrowDown } from "lucide-react"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
 
 const items = [
   "Desbloquea el script exacto para renovar tu CV con IA.",
   "Realiza un deep research de ofertas en minutos.",
-  "Extrae los pain points de negocio de cualquier vacante.",
-  "Aprende a diseñar un demo imbatible en 6 horas.",
-  "Consigue la plantilla de README que vende tu candidatura.",
+  "Aprende a leer entre líneas: Descubre cómo desenterrar las verdaderas necesidades",
+  "El Contraataque de 6 Horas: El sistema de ejecución rápida para materializar una solución letal e imposible de ignorar en menos de una tarde",
+  "La Estructura de Documentación Magnética: La plantilla exacta para presentar tu arsenal técnico de forma que un perfil técnico senior la consuma en 30 segundos",
   "Domina el mensaje de correo que abre puertas con CTOs.",
   "Prepárate con el simulador de IA para entrevistas.",
   "Accede al checklist de despliegue gratuito (Vercel, Railway, Supabase).",
-]
+];
 
 export function PdfPreviewSection() {
   return (
@@ -65,5 +65,5 @@ export function PdfPreviewSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

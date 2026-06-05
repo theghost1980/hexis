@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { ShoppingBag } from "lucide-react"
+import Image from "next/image";
+import { ShoppingBag } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -17,7 +17,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-container px-5 py-16">
-            <div className="max-w-lg rounded-2xl bg-white/80 p-5 backdrop-blur-sm sm:p-10">
+        <div className="max-w-lg rounded-2xl bg-white/80 p-5 backdrop-blur-sm sm:p-10">
           <span className="mb-4 inline-block rounded-full border border-[#E2E8F0] bg-white px-4 py-1 text-xs font-semibold tracking-wide text-[#F5A623]">
             HEXIS · MAYO 2026
           </span>
@@ -27,14 +27,17 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-4 text-base text-[#4A5568] sm:text-lg">
-            De 200 rechazos a tener al CTO revisando tu demo en 24 horas.
-            Descarga el Método Hexis y aprende a destacar usando la IA como
-            ventaja competitiva.
+            De 200 rechazos a abrir una línea directa con el CTO en menos de 24
+            horas.. Descarga el Método Hexis y aprende a destacar usando la IA
+            como ventaja competitiva.
           </p>
 
           <div className="group relative mt-8 inline-block">
             <div className="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-[#0B1E33] px-4 py-2 text-sm font-semibold text-[#F5A623] shadow-lg opacity-0 transition-all duration-200 group-hover:opacity-100">
-              <span className="text-white">🔥 Aprovecha el descuento de hoy </span>$27
+              <span className="text-white">
+                🔥 Aprovecha el descuento de hoy{" "}
+              </span>
+              $27
               <div className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-[#0B1E33]" />
             </div>
             <a
@@ -50,5 +53,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

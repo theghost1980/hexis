@@ -31,7 +31,7 @@ El Método Hexis te enseña a dejar de ser un CV anónimo y convertirte en un so
 1.  **Hero:** Hexis + tagline principal + CTA.
 2.  **El dolor del mercado actual:** rechazos, saturación.
 3.  **El sistema Hexis:** los 8 pasos visuales.
-4.  **Testimonio real:** tu historia de 200 rechazos → demo → entrevista.
+4.  **Testimonio real:** tu historia de 200 rechazos.
 5.  **Contenido del PDF:** Método Hexis.
 6.  **CTA para descargar el PDF:** + lista de espera (Beehiiv).
 7.  **Visión de futuro:** cohortes, mentorías, comunidad Hexis.
@@ -96,7 +96,7 @@ Crea el componente HeroSection.tsx en src/components/sections/. Usa el estilo vi
 Estructura en dos columnas (mobile: apiladas). Columna izquierda:
 - Un badge pequeño: "HEXIS · MAYO 2026".
 - Título principal: "El sistema que convierte práctica en oportunidades reales."
-- Subtítulo: "De 200 rechazos a tener al CTO revisando tu demo en 24 horas. Descarga el Método Hexis y aprende a destacar usando la IA como ventaja competitiva."
+- Subtítulo: "De 200 rechazos a tener al CTO revisando....."
 - Dos botones: uno primario (dorado) "Descargar el PDF Gratis" (ancla a #cta-form) y uno secundario (borde azul) "Cómo funciona" (ancla a la sección de pasos).
 - Pequeño texto: "Sin spam. Acceso inmediato al método + lista de espera del programa avanzado."
 
@@ -146,7 +146,6 @@ Crea TestimonialSection.tsx. Usa el estilo visual light. Fondo ligeramente difer
 
 - Avatar placeholder (luego pondremos tu foto real generada por IA).
 - Nombre: Saturno Mangieri, Ing. de Software.
-- Testimonio en primera persona: "Después de 200 rechazos aplastantes, descubrí que la práctica real es lo único que impresiona. Apliqué el Sistema Hexis, construí una demo en 3 días y en menos de 24 horas la consultora la envió al cliente final. El CTO dijo: 'Esto es exactamente lo que necesitábamos'. Ahora comparto este método para que tú también dejes de ser un CV más."
 - Debajo, logos de tecnologías (Next.js, Node, IA, etc.) en pequeño y en escala de grises.
 - Un botón "Conoce el sistema" que lleve a los pasos.
 
@@ -161,14 +160,7 @@ Crea PdfPreviewSection.tsx. Usa el estilo visual light.
 Título: "Dentro del Método Hexis (30 páginas de acción)".
 Dos columnas (móvil: una columna). A la izquierda, un mockup del PDF (imagen placeholder que luego generaremos). A la derecha, un listado con íconos de check (lucide-react):
 
-- El script exacto para renovar tu CV con IA.
-- Deep research de ofertas en minutos.
-- Prompts para extraer dolores de negocio de cualquier vacante.
-- Cómo diseñar un demo imbatible en 6 horas.
-- Plantilla de README que vende tu candidatura.
-- El mensaje de correo que abre puertas con CTOs.
-- Preparación de entrevistas con simulador de IA.
-- Checklist de despliegue gratuito (Vercel, Railway, Supabase).
+- los pasos del metodos, explicados en el metodo
 
 Debajo, un botón dorado "Descargar el PDF Gratis" (ancla al formulario). Pequeño texto: "Al descargarlo entras a la comunidad Hexis y a la lista de espera del programa avanzado."
 ```
@@ -225,25 +217,25 @@ Estos pasos deben ejecutarse antes del deploy a producción. Son correcciones y 
 
 ### 🔴 Prioridad Alta (bloqueantes)
 
-| # | Archivo | Problema | Solución |
-|:-:|---------|----------|----------|
-| 1 | `src/components/sections/TestimonialSection.tsx` | Sin CTA después del testimonio (pico emocional perdido) | Agregar botón "Conoce el sistema" que haga scroll a `#hexis-system` |
-| 2 | `netlify.toml` | `publish = "hexis-landing/out"` es incorrecto — es relativo a `base`, debería ser `publish = "out"` | Cambiar `publish = "hexis-landing/out"` → `publish = "out"` |
-| 3 | `src/components/sections/KitFormEmbed.tsx` | Formulario Kit en inglés ("Subscribe to get our latest content by email") | Cambiar el `subheader` del form HTML a texto en español |
+|  #  | Archivo                                          | Problema                                                                                            | Solución                                                            |
+| :-: | ------------------------------------------------ | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+|  1  | `src/components/sections/TestimonialSection.tsx` | Sin CTA después del testimonio (pico emocional perdido)                                             | Agregar botón "Conoce el sistema" que haga scroll a `#hexis-system` |
+|  2  | `netlify.toml`                                   | `publish = "hexis-landing/out"` es incorrecto — es relativo a `base`, debería ser `publish = "out"` | Cambiar `publish = "hexis-landing/out"` → `publish = "out"`         |
+|  3  | `src/components/sections/KitFormEmbed.tsx`       | Formulario Kit en inglés ("Subscribe to get our latest content by email")                           | Cambiar el `subheader` del form HTML a texto en español             |
 
 ### 🟡 Prioridad Media
 
-| # | Archivo | Problema | Solución |
-|:-:|---------|----------|----------|
-| 4 | `src/components/footer.tsx` | Email `hola@hexis.com` no coincide con el usado en soporte | Cambiar a `saturno@hexis.fyi` |
-| 5 | `src/components/footer.tsx` | LinkedIn y GitHub apuntan a URLs genéricas | Reemplazar con URLs reales de Hexis o del autor |
-| 6 | `src/app/layout.tsx` | Faltan Open Graph y Twitter Cards para redes sociales | Agregar `metadata.openGraph` y `metadata.twitter` al layout |
+|  #  | Archivo                     | Problema                                                   | Solución                                                    |
+| :-: | --------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------- |
+|  4  | `src/components/footer.tsx` | Email `hola@hexis.com` no coincide con el usado en soporte | Cambiar a `saturno@hexis.fyi`                               |
+|  5  | `src/components/footer.tsx` | LinkedIn y GitHub apuntan a URLs genéricas                 | Reemplazar con URLs reales de Hexis o del autor             |
+|  6  | `src/app/layout.tsx`        | Faltan Open Graph y Twitter Cards para redes sociales      | Agregar `metadata.openGraph` y `metadata.twitter` al layout |
 
 ### 🟢 Prioridad Baja (mejora)
 
-| # | Archivo | Problema | Solución |
-|:-:|---------|----------|----------|
-| 7 | `src/components/navbar.tsx` | No hay acceso directo a `/soporte` desde el navbar | Agregar link "Centro de Ayuda" o icono `HelpCircle` junto al botón de compra |
+|  #  | Archivo                     | Problema                                           | Solución                                                                     |
+| :-: | --------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------- |
+|  7  | `src/components/navbar.tsx` | No hay acceso directo a `/soporte` desde el navbar | Agregar link "Centro de Ayuda" o icono `HelpCircle` junto al botón de compra |
 
 ### Prompt para ejecutar (copiar y pegar en el agente):
 
@@ -409,12 +401,13 @@ Se requiere añadir soporte para pagos locales en Venezuela (Pago Móvil, transf
 
 #### 1. Subdominios en Namecheap + Netlify
 
-| Subdominio | Propósito |
-|------------|-----------|
-| `pay.hexis.fyi` | Redirigir a checkout internacional alternativo (PayPal o Gumroad) |
-| `pago.hexis.fyi` | Página de pago local venezolana con instrucciones |
+| Subdominio       | Propósito                                                         |
+| ---------------- | ----------------------------------------------------------------- |
+| `pay.hexis.fyi`  | Redirigir a checkout internacional alternativo (PayPal o Gumroad) |
+| `pago.hexis.fyi` | Página de pago local venezolana con instrucciones                 |
 
 **Acciones concretas:**
+
 - En Namecheap: añadir registros CNAME para `pay` y `pago` → `hexis.netlify.app`
 - En Netlify: agregar los dominios como alias (Domain management → Add domain alias) para HTTPS.
 - Verificar SSL.
@@ -430,16 +423,18 @@ Se requiere añadir soporte para pagos locales en Venezuela (Pago Móvil, transf
 
 **Opciones técnicas:**
 
-| Opción | Pros | Contras |
-|--------|------|---------|
-| Netlify Edge Functions | No expone API keys, rendimiento, sin costo extra en plan Pro | Requiere configurar edge-functions en Netlify |
-| Cliente-side (`ipapi.co`) | Simple, sin configuración de infra | Llamada externa, posible bloqueo de adblockers |
+| Opción                    | Pros                                                         | Contras                                        |
+| ------------------------- | ------------------------------------------------------------ | ---------------------------------------------- |
+| Netlify Edge Functions    | No expone API keys, rendimiento, sin costo extra en plan Pro | Requiere configurar edge-functions en Netlify  |
+| Cliente-side (`ipapi.co`) | Simple, sin configuración de infra                           | Llamada externa, posible bloqueo de adblockers |
 
 **Si se usa Edge Function:**
+
 - Crear `netlify/edge-functions/geo-offer.ts`
 - Inyectar cabecera `x-visitor-country` que React lea desde `getServerSideProps` o desde el cliente.
 
 **Si se usa cliente-side:**
+
 - Fetch a `https://ipapi.co/json/`
 - Leer `country_code`
 - Mostrar/ocultar sección según resultado.
@@ -454,6 +449,7 @@ Se requiere añadir soporte para pagos locales en Venezuela (Pago Móvil, transf
 **Dónde:** En `hexis.fyi`, entre el Hero y la sección de dolor de mercado, o como un banner sticky.
 
 **Diseño propuesto:**
+
 ```
 ┌─────────────────────────────────────────────┐
 │  🇻🇪 ¡Oferta especial para Venezuela!       │
@@ -483,6 +479,7 @@ Se requiere añadir soporte para pagos locales en Venezuela (Pago Móvil, transf
 **Dónde:** Nueva página en el proyecto, ruta `/pago` o desplegada como sitio separado en Netlify apuntando a una carpeta específica.
 
 **Estructura:**
+
 1. **Header:** Logo Hexis + título "Pago Local — Método Hexis"
 2. **Instrucciones paso a paso:**
    - Calcular monto en bolívares (según tasa BCV, mostrada en vivo o actualizable manualmente).
@@ -502,6 +499,7 @@ Se requiere añadir soporte para pagos locales en Venezuela (Pago Móvil, transf
 
 **Estimación:** 16-24 horas (incluye diseño, formulario, backend de almacenamiento, email automático).  
 **Obstáculos:**
+
 - Subida de archivos en Netlify requiere servicio externo (Supabase Storage, Cloudinary, o enviar por email).
 - Tasa de cambio: si se consume API de BCV, puede fallar si cambia el endpoint. Alternativa: tasa fija actualizable manualmente cada semana.
 - Pago Móvil es una red privada — no hay API pública para verificar pagos. Todo es manual hasta integrar con servicios como PagoFlash.
@@ -511,16 +509,19 @@ Se requiere añadir soporte para pagos locales en Venezuela (Pago Móvil, transf
 #### 5. Página de redirección (`pay.hexis.fyi`)
 
 **Opción A (simple):** Redirección Netlify — crear `_redirects` o `netlify.toml`:
+
 ```
 /pay/*  https://shop.hexis.fyi  301
 ```
 
 **Opción B (más control):** Página simple con:
+
 - Logo Hexis
 - Botón "Comprar con PayPal" (integrar SDK de PayPal con botón de compra)
 - Texto: "También disponible en Gumroad" → enlace a `shop.hexis.fyi`
 
 **Opción C (completa):** Página con dos botones:
+
 1. PayPal directo (botón generado desde PayPal Business)
 2. Gumroad como respaldo
 
@@ -546,15 +547,15 @@ Recomendación: Opción A para MVP rápido, migrar a Opción C si se necesita.
 
 ### Resumen de tiempos
 
-| Tarea | Estimación | Dependencias |
-|-------|-----------|-------------|
-| 1. Subdominios | ~1h | Ninguna |
-| 2. Geolocalización | ~5h | Ninguna |
-| 3. Sección dinámica | ~4h | Tarea 2 |
-| 4. Página pago local | ~20h | Tarea 1 |
-| 5. Redirección pay | ~2h | Tarea 1 |
-| 6. Pruebas | ~3h | Tareas 2-5 |
-| **Total** | **~35h** | — |
+| Tarea                | Estimación | Dependencias |
+| -------------------- | ---------- | ------------ |
+| 1. Subdominios       | ~1h        | Ninguna      |
+| 2. Geolocalización   | ~5h        | Ninguna      |
+| 3. Sección dinámica  | ~4h        | Tarea 2      |
+| 4. Página pago local | ~20h       | Tarea 1      |
+| 5. Redirección pay   | ~2h        | Tarea 1      |
+| 6. Pruebas           | ~3h        | Tareas 2-5   |
+| **Total**            | **~35h**   | —            |
 
 **Nota:** Tarea 1 puede iniciarse inmediatamente (no requiere deploy de código, solo DNS).  
 **Todas las tareas están marcadas como pendientes** — no se implementan hasta después del lanzamiento inicial (el MVP ya funciona con Gumroad).

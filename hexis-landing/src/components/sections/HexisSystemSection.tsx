@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { FloatingHeading } from "@/components/ui/floating-heading"
-import { Eye, Target, Wallet, Zap } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { FloatingHeading } from "@/components/ui/floating-heading";
+import { Eye, Target, Wallet, Zap } from "lucide-react";
 
 const pillars = [
   {
@@ -15,7 +15,7 @@ const pillars = [
     icon: Target,
     title: "Ofertas que se convierten en oportunidades",
     description:
-      "No se trata de aplicar más, sino de aplicar mejor. Aprende a transformar cualquier vacante en un escaparate de lo que realmente sabes hacer.",
+      "No se trata de aplicar más, sino de aplicar mejor. Aprende a interceptar cualquier vacante tradicional y transformarla en una propuesta de valor personalizada que obligue al equipo técnico a contactarte.",
   },
   {
     icon: Zap,
@@ -23,7 +23,7 @@ const pillars = [
     description:
       "Mientras otros temen ser reemplazados, tú usarás la inteligencia artificial como el multiplicador de impacto que te separe del resto.",
   },
-]
+];
 
 export function HexisSystemSection() {
   return (
@@ -34,17 +34,20 @@ export function HexisSystemSection() {
             EL MÉTODO
           </span>
           <FloatingHeading>
-            <h2>Un sistema probado que integra IA, práctica deliberada y posicionamiento estratégico.</h2>
+            <h2>
+              Un sistema probado que integra IA, práctica deliberada y
+              posicionamiento estratégico.
+            </h2>
           </FloatingHeading>
           <p className="mt-4 text-base text-[#4A5568] sm:text-lg">
-            No es un curso más de CV. Es un enfoque completo que cambia la
-            forma en que los reclutadores te perciben.
+            No es un curso más de CV. Es un enfoque completo que cambia la forma
+            en que los reclutadores te perciben.
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {pillars.map((pillar, i) => {
-            const Icon = pillar.icon
+            const Icon = pillar.icon;
             return (
               <div
                 key={pillar.title}
@@ -62,16 +65,20 @@ export function HexisSystemSection() {
                   {pillar.description}
                 </p>
               </div>
-            )
+            );
           })}
         </div>
 
         <div className="mx-auto mt-12 max-w-xl rounded-xl border border-[#2563EB]/20 bg-[#F0F4FF] p-6 text-center">
           <p className="text-sm font-medium text-[#0B1E33]">
             El método completo —cada fase, cada prompt, cada estrategia— está
-            detallado en el PDF del Método Hexis. No revelamos el sistema
-            abiertamente porque quienes lo aplican en serio no necesitan
-            atajos.
+            detallado en el PDF del Método Hexis. El Método Hexis está
+            estructurado en un framework de 8 pasos milimétricos. No verás un
+            mapa público de las fases aquí abajo. ¿Por qué? Porque el mercado ya
+            está lleno de fórmulas genéricas que todos copian por encima. Este
+            es un sistema de ingeniería inversa para tu carrera: desde la
+            deconstrucción de la oferta hasta el mensaje de cierre con el
+            decisor técnico
           </p>
         </div>
 
@@ -99,5 +106,5 @@ export function HexisSystemSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

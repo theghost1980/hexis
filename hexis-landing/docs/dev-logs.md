@@ -64,7 +64,7 @@
 - **HeroSection** (`src/components/sections/HeroSection.tsx`): sección de 2 columnas (stackeable en mobile).
   - Badge "HEXIS · MAYO 2026"
   - Título: "El sistema que convierte práctica en oportunidades reales."
-  - Subtítulo con historia de 200 rechazos → demo → CTO
+  - Subtítulo con historia de 200 rechazos
   - Botón CTA dorado "Descargar el PDF Gratis" (ancla a #cta-form)
   - Botón secundario azul "Cómo funciona" (ancla a #hexis-system)
   - Texto de confianza: "Sin spam. Acceso inmediato..."
@@ -98,7 +98,7 @@
 
 - **Problema:** La sección original revelaba detalles del método, eliminando la necesidad de comprar el PDF.
 - **Solución:** Se reemplazó por 3 pilares de alto nivel (Visibilidad real, Ofertas como oportunidades, IA como ventaja) que venden el resultado sin revelar el cómo.
-- Se agregó un callout explícito: *"No revelamos el sistema abiertamente porque quienes lo aplican en serio no necesitan atajos."*
+- Se agregó un callout explícito: _"No revelamos el sistema abiertamente porque quienes lo aplican en serio no necesitan atajos."_
 - CTA cambió a "Descubrir el método completo" (genera curiosidad en vez de asumir que ya lo conocen).
 
 ### Verificación
@@ -112,7 +112,7 @@
 ### Nuevo componente
 
 - **TestimonialSection** (`src/components/sections/TestimonialSection.tsx`):
-  - Tarjeta central con testimonio en primera persona (historia de 200 rechazos → demo → CTO)
+  - Tarjeta central con testimonio en primera persona (historia de 200 rechazos)
   - Avatar generado por IA guardado en `/public/images/avatar-testimonial.png`
   - Nombre: Andrés Silva (alias)
   - Logos de tecnologías en gris (Next.js, Node, TypeScript, OpenAI, Vercel)
@@ -146,6 +146,7 @@
 ### Estructura completa de la landing
 
 La página ahora tiene todas las secciones del roadmap Fase 0:
+
 1. HeroSection
 2. MarketPainSection
 3. HexisSystemSection
@@ -191,15 +192,15 @@ Se utilizará el **mismo sistema de diseño del libro**, pero en su **versión l
 
 ### Problemas detectados y corregidos
 
-| # | Archivo | Cambio |
-|---|---------|--------|
-| 1 | `FutureVisionSection.tsx` | Margen negativo `-ml-[calc(...)]` movido a `lg:` para evitar overflow horizontal en mobile. Gradiente decorativo oculto en mobile con `hidden lg:block`. |
-| 2 | `RejectionCarouselSection.tsx` | Cards cambiadas de `min-w-[340px]` a `min-w-[280px] sm:min-w-[340px]` para que quepan en pantallas de ~375px. |
-| 3 | `HeroSection.tsx` | `min-h` reducido de `600px` a `500px sm:600px`. Imagen de fondo cambió a `inset-0` con `opacity-40 sm:opacity-100` para no opacar el contenido en mobile. Tarjeta `p-5 sm:p-10`. Título `text-[1.75rem] sm:text-[2.5rem]`. |
-| 4 | `floating-heading.tsx` | Sticky behavior movido a `lg:sticky lg:top-0` para que no compita con el navbar en mobile. |
-| 5 | `globals.css` | Headings ahora responsivos: `h1` → `text-[1.75rem] sm:text-[2.5rem]`, `h2` → `text-[1.5rem] sm:text-[1.8rem]`, `h3` → `text-[1.15rem] sm:text-[1.3rem]`. |
-| 6 | `TestimonialSection.tsx` | Avatar reducido a `h-24 w-24 sm:h-40 sm:w-40`. |
-| 7 | `MarketPainSection.tsx` | Comilla decorativa `text-[140px]` oculta en mobile con `hidden sm:block`. |
+| #   | Archivo                        | Cambio                                                                                                                                                                                                                     |
+| --- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | `FutureVisionSection.tsx`      | Margen negativo `-ml-[calc(...)]` movido a `lg:` para evitar overflow horizontal en mobile. Gradiente decorativo oculto en mobile con `hidden lg:block`.                                                                   |
+| 2   | `RejectionCarouselSection.tsx` | Cards cambiadas de `min-w-[340px]` a `min-w-[280px] sm:min-w-[340px]` para que quepan en pantallas de ~375px.                                                                                                              |
+| 3   | `HeroSection.tsx`              | `min-h` reducido de `600px` a `500px sm:600px`. Imagen de fondo cambió a `inset-0` con `opacity-40 sm:opacity-100` para no opacar el contenido en mobile. Tarjeta `p-5 sm:p-10`. Título `text-[1.75rem] sm:text-[2.5rem]`. |
+| 4   | `floating-heading.tsx`         | Sticky behavior movido a `lg:sticky lg:top-0` para que no compita con el navbar en mobile.                                                                                                                                 |
+| 5   | `globals.css`                  | Headings ahora responsivos: `h1` → `text-[1.75rem] sm:text-[2.5rem]`, `h2` → `text-[1.5rem] sm:text-[1.8rem]`, `h3` → `text-[1.15rem] sm:text-[1.3rem]`.                                                                   |
+| 6   | `TestimonialSection.tsx`       | Avatar reducido a `h-24 w-24 sm:h-40 sm:w-40`.                                                                                                                                                                             |
+| 7   | `MarketPainSection.tsx`        | Comilla decorativa `text-[140px]` oculta en mobile con `hidden sm:block`.                                                                                                                                                  |
 
 ### Verificación
 
