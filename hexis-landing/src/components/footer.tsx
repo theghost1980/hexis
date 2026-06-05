@@ -1,6 +1,6 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ExternalLink, Globe, Mail } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { ExternalLink, Globe, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -23,7 +23,7 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/saturno-mangieri/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-foreground"
@@ -32,7 +32,7 @@ export function Footer() {
               <ExternalLink className="h-5 w-5" />
             </Link>
             <Link
-              href="https://github.com"
+              href="https://github.com/theghost1980"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-foreground"
@@ -41,7 +41,7 @@ export function Footer() {
               <Globe className="h-5 w-5" />
             </Link>
             <Link
-              href="mailto:hola@hexis.com"
+              href="mailto:saturnob612@gmail.com"
               className="text-muted-foreground transition-colors hover:text-foreground"
               aria-label="Email"
             >
@@ -51,9 +51,10 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-6 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Hexis. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Hexis. Todos los derechos
+          reservados.
         </div>
       </div>
     </footer>
-  )
+  );
 }
