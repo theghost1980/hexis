@@ -70,12 +70,12 @@ const cards: CardData[] = [
   },
   {
     name: "Sof\u00EDa",
-    type: "Sistema ATS",
+    type: "THEMACHINE",
     icon: ShieldAlert,
     headerLabel: "Alerta del sistema",
     headerColor: "#DC2626",
     content:
-      "[Sistema ATS]: Postulaci\u00F3n rechazada autom\u00E1ticamente. Motivo: se recibieron m\u00E1s de 400 CVs con palabras clave id\u00E9nticas. Tu perfil no presenta diferenciaci\u00F3n significativa frente al resto.",
+      "[THEMACHINE]: Postulación rechazada automáticamente. Motivo: se recibieron más de 400 CVs con palabras clave idénticas. Tu perfil no presenta diferenciación significativa frente al resto.",
     coda: "No seas como Sof\u00EDa. No dejes tu carrera en manos de un algoritmo ciego.",
   },
   {
@@ -134,7 +134,7 @@ function RejectionCard({ card }: { card: CardData }) {
   const Icon = card.icon
   const isEmail = card.type === "Email"
   const isWhatsApp = card.type === "WhatsApp"
-  const isATS = card.type === "Sistema ATS"
+  const isMachine = card.type === "THEMACHINE"
   const isSMS = card.type === "SMS"
   const isSlack = card.type === "Slack"
 
@@ -176,7 +176,7 @@ function RejectionCard({ card }: { card: CardData }) {
             </p>
           </div>
         </div>
-      ) : isATS ? (
+      ) : isMachine ? (
         <div className="bg-[#FEF2F2] px-5 py-4 font-mono">
           <div className="mb-3 flex items-center gap-2">
             <ShieldAlert className="h-4 w-4 text-[#DC2626]" />

@@ -1,10 +1,12 @@
+import { Fragment } from "react"
 import { FileText, MessageCircle, Cpu } from "lucide-react"
 import { FloatingHeading } from "@/components/ui/floating-heading"
+import { TheMachineText } from "@/components/ui/the-machine-text"
 
 const pains = [
   {
     icon: FileText,
-    title: "ATS que descartan tu perfil sin leerlo.",
+    title: "THEMACHINE descarta tu perfil sin leerlo.",
     description:
       "Los sistemas automáticos filtran CVs por palabras clave antes de que un humano los vea. Tu experiencia real nunca llega a quien decide.",
   },
@@ -48,7 +50,14 @@ export function MarketPainSection() {
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1A2B3C]/10 text-[#1A2B3C]">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3>{pain.title}</h3>
+                <h3>
+                  {pain.title.split("THEMACHINE").map((part, i, arr) => (
+                    <Fragment key={i}>
+                      {i > 0 && <TheMachineText />}
+                      {part}
+                    </Fragment>
+                  ))}
+                </h3>
                 <p className="mt-2 text-sm text-[#4A5568]">
                   {pain.description}
                 </p>

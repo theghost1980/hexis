@@ -15,9 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hexis – Construye ventaja a través de la práctica",
+  title: "Empleo seguro 2026 Método Hexis",
   description:
-    "Sistemas modernos para profesionales ambiciosos. Descarga gratis el Método Hexis y conviértete en el candidato que las empresas quieren ver.",
+    "El método que te saca del montón de CVs y te pone frente al CTO en 2026. Para developers. Descarga el PDF.",
   icons: {
     icon: { url: "/favicon.ico", type: "image/x-icon" },
   },
@@ -38,7 +38,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} font-sans antialiased overflow-x-hidden`}
       >
         {children}
       </body>

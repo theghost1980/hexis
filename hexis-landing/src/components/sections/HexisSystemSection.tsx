@@ -2,107 +2,109 @@
 
 import { Button } from "@/components/ui/button";
 import { FloatingHeading } from "@/components/ui/floating-heading";
-import { Eye, Target, Wallet, Zap } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
-const pillars = [
+const items = [
   {
-    icon: Eye,
-    title: "Visibilidad real en un mar de CVs",
+    title: "El script de 4 prompts de IA",
     description:
-      "Los métodos tradicionales te esconden. El sistema Hexis te posiciona donde los reclutadores miran primero, sin depender de palabras clave ni filtros automáticos.",
+      "Analiza cualquier oferta de empleo en 5 minutos. Extrae lo que el recruiter realmente busca, las keywords que THEMACHINE espera y los puntos débiles del equipo técnico.",
   },
   {
-    icon: Target,
-    title: "Ofertas que se convierten en oportunidades",
+    title: "La Documentación Magnética",
     description:
-      "No se trata de aplicar más, sino de aplicar mejor. Aprende a interceptar cualquier vacante tradicional y transformarla en una propuesta de valor personalizada que obligue al equipo técnico a contactarte.",
+      "La plantilla exacta para presentar tu arsenal técnico. Un CTO la consume en 30 segundos y pide entrevista. Sin PDFs de 10 páginas que nadie lee.",
   },
   {
-    icon: Zap,
-    title: "IA como ventaja, no como amenaza",
+    title: "El mensaje de cold-email que abre puertas",
     description:
-      "Mientras otros temen ser reemplazados, tú usarás la inteligencia artificial como el multiplicador de impacto que te separe del resto.",
+      "El template probado para contactar CTOs y directores técnicos directamente. Sin lambonería, sin desesperación. Profesional, directo, efectivo.",
+  },
+  {
+    title: 'El "Contraataque de 6 Horas"',
+    description:
+      "El sistema de ejecución rápida para pasar de ver una oferta a tener una propuesta personalizada enviada en menos de una tarde. Paso a paso, sin perderse.",
+  },
+  {
+    title: "Simulador de entrevistas con IA",
+    description:
+      "Practica con un bot que se hace pasar por CTO. Te hace las preguntas difíciles, te da feedback y te prepara para la conversación real. Llegas con ventaja.",
+  },
+  {
+    title: "Checklist de despliegue gratuito",
+    description:
+      "Vercel, Railway, Supabase, Cloudflare. La lista completa de plataformas donde desplegar tus proyectos sin pagar un centavo. Para que tu portafolio viva en producción.",
+  },
+  {
+    title: "Estrategia de posicionamiento anti-filtros",
+    description:
+      "El método para que tu perfil burle a THEMACHINE y aparezca donde los reclutadores humanos miran. Sin depender de palabras clave ni rezar por el Easy Apply.",
+  },
+  {
+    title: "El framework completo de 8 pasos",
+    description:
+      "Cada fase explicada con ejemplos reales. Desde la deconstrucción de la oferta hasta el mensaje de cierre con el decisor técnico. El mapa completo.",
   },
 ];
 
 export function HexisSystemSection() {
   return (
-    <section id="hexis-system" className="bg-white py-16 sm:py-16">
+    <section id="hexis-system" className="bg-[#F8F9FA] py-16 sm:py-20">
       <div className="mx-auto max-w-container px-5">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="mb-4 inline-block rounded-full border border-[#E2E8F0] bg-white px-4 py-1 text-xs font-semibold tracking-wide text-[#2563EB]">
+          <span className="mb-4 inline-block rounded-full border border-[#2563EB]/20 bg-[#F0F4FF] px-4 py-1 text-xs font-semibold tracking-wide text-[#2563EB]">
             EL MÉTODO
           </span>
           <FloatingHeading>
-            <h2>
-              Un sistema probado que integra IA, práctica deliberada y
-              posicionamiento estratégico.
-            </h2>
+            <h2>Lo que hay dentro del Método Hexis</h2>
           </FloatingHeading>
           <p className="mt-4 text-base text-[#4A5568] sm:text-lg">
-            No es un curso más de CV. Es un enfoque completo que cambia la forma
-            en que los reclutadores te perciben.
+            28 páginas. Sin relleno. Cada sección es un paso accionable que te
+            acerca a la entrevista con el CTO.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((pillar, i) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={pillar.title}
-                className={`rounded-xl border border-[#E2E8F0] p-6 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)] ${
-                  i === 1
-                    ? "bg-gradient-to-b from-[#FEF7E6] to-white"
-                    : "bg-white"
-                }`}
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#1A2B3C]/10 text-[#1A2B3C]">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3>{pillar.title}</h3>
-                <p className="mt-2 text-sm text-[#4A5568]">
-                  {pillar.description}
-                </p>
-              </div>
-            );
-          })}
+        <div className="mx-auto mt-10 grid gap-4 sm:grid-cols-2 lg:max-w-4xl">
+          {items.map((item) => (
+            <div
+              key={item.title}
+              className="group rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.03)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_16px_-4px_rgba(0,0,0,0.08)]"
+            >
+              <h3 className="text-[15px] font-semibold text-[#0B1E33]">
+                {item.title}
+              </h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-[#4A5568]">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="mx-auto mt-12 max-w-xl rounded-xl border border-[#2563EB]/20 bg-[#F0F4FF] p-6 text-center">
-          <p className="text-sm font-medium text-[#0B1E33]">
-            El método completo —cada fase, cada prompt, cada estrategia— está
-            detallado en el PDF del Método Hexis. El Método Hexis está
-            estructurado en un framework de 8 pasos milimétricos. No verás un
-            mapa público de las fases aquí abajo. ¿Por qué? Porque el mercado ya
-            está lleno de fórmulas genéricas que todos copian por encima. Este
-            es un sistema de ingeniería inversa para tu carrera: desde la
-            deconstrucción de la oferta hasta el mensaje de cierre con el
-            decisor técnico
+        <div className="mx-auto mt-10 max-w-xl rounded-xl border-2 border-[#25D366]/30 bg-[#F0FAF4] p-6 text-center">
+          <p className="text-sm font-semibold text-[#0B1E33]">
+            Al obtener el libro, tendrás acceso privado a mi grupo de WhatsApp
+          </p>
+          <p className="mt-1 text-sm text-[#4A5568]">
+            Donde en 10 días romperás el código del empleo tech en 2026. No
+            estarás solo: resuelvo dudas, comparto estrategias y ajustamos tu
+            enfoque en tiempo real.
           </p>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-6 text-center">
           <Button
             variant="cta"
             size="lg"
+            className="gap-2"
             onClick={() =>
               document
                 .getElementById("cta-form")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Descubrir el método completo
+            Quiero el PDF
+            <ArrowDown className="h-4 w-4" />
           </Button>
-          <a
-            href="https://shop.hexis.fyi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-11 items-center justify-center whitespace-nowrap rounded-md bg-[#0B1E33] px-8 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:bg-[#162D4A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E33] focus-visible:ring-offset-2"
-          >
-            <Wallet className="mr-2 h-5 w-5" />
-            Te lo compro
-          </a>
         </div>
       </div>
     </section>
