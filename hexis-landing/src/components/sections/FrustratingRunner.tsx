@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { AlertCircle, RotateCcw } from "lucide-react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type KaplayCtx = any;
+
 const INSULTS = [
   "Así mismo intentas aplicar una y otra vez al mismo botón de 'Easy Apply' esperando un resultado diferente...",
   "Aplicando a empleos como juegas esto, NUNCA vas a tener un puesto tech. Es tan frustrante como este juego.",
@@ -18,7 +21,7 @@ export default function FrustratingRunner() {
   const [score, setScore] = useState(0);
   const [currentMessage, setCurrentMessage] = useState("");
 
-  const kRef = useRef<any>(null);
+  const kRef = useRef<KaplayCtx | null>(null);
   const initializedRef = useRef(false);
   const gameStateRef = useRef({
     score: 0,
@@ -52,7 +55,7 @@ export default function FrustratingRunner() {
     }
   };
 
-  const spawnObstacle = (k: any) => {
+  const spawnObstacle = (k: KaplayCtx) => {
     if (gameStateRef.current.gameOver) return;
 
     const types = ["ats", "rejection", "easyapply"];
@@ -146,7 +149,7 @@ export default function FrustratingRunner() {
     if (initializedRef.current) return;
     initializedRef.current = true;
 
-    let kInstance: any = null;
+    let kInstance: KaplayCtx | null = null;
 
     const initGame = async () => {
       const kaplay = (await import("kaplay")).default;
@@ -170,7 +173,7 @@ export default function FrustratingRunner() {
 
       // Sprite sheet: 1118x223 → forzamos frameWidth:223 manual (evita división decimal)
       try {
-        await (k as any).loadSprite("player", "/images/player-spritesheet.png", {
+        await (k as KaplayCtx).loadSprite("player", "/images/player-spritesheet.png", {
           sliceX: 5,
           sliceY: 1,
           frameWidth: 223,

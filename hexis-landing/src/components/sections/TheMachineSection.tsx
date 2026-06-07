@@ -6,7 +6,7 @@ import { AlertTriangle, Check } from "lucide-react";
 import { TheMachineText } from "@/components/ui/the-machine-text";
 
 const renderDesc = (text: string) =>
-  text.split("THEMACHINE").map((part, i, arr) => (
+  text.split("THEMACHINE").map((part, i) => (
     <Fragment key={i}>
       {i > 0 && <TheMachineText />}
       {part}

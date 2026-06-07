@@ -99,7 +99,7 @@ export default function MetodoPage() {
                     </strong>{" "}
                     Parsea tu texto como ruido. Barajó las columnas, perdió
                     palabras, y el resultado fue basura ilegible. Tu CV ni
-                    siquiera llegó a la carpeta de "revisar".
+                    siquiera llegó a la carpeta de &ldquo;revisar&rdquo;.
                   </p>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function MetodoPage() {
                     Los vacíos semánticos que el bot sí detecta
                   </h3>
                   <p className="mt-2 leading-relaxed text-[#4A5568]">
-                    Pusiste "Experiencia en React". Suena bien. Pero el software
+                    Pusiste &ldquo;Experiencia en React&rdquo;. Suena bien. Pero el software
                     busca palabras que{" "}
                     <strong className="text-[#0B1E33]">
                       contextualicen ese expertise
@@ -141,7 +141,7 @@ export default function MetodoPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-bold text-[#0B1E33]">
-                    El vicio del "Easy Apply" que te entierra vivo
+                    El vicio del &ldquo;Easy Apply&rdquo; que te entierra vivo
                   </h3>
                   <p className="mt-2 leading-relaxed text-[#4A5568]">
                     Aplicaste a 50 ofertas hoy con un solo clic. El problema:
@@ -275,7 +275,7 @@ export default function MetodoPage() {
           </h2>
 
           <p className="mt-4 text-center text-lg text-[#4A5568]">
-            No es un libro genérico de "cómo hacer un CV". Es un sistema paso a
+            No es un libro genérico de &ldquo;cómo hacer un CV&rdquo;. Es un sistema paso a
             paso diseñado por un dev para devs.
           </p>
 

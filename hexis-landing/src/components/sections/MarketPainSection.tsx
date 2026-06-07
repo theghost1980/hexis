@@ -51,7 +51,7 @@ export function MarketPainSection() {
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3>
-                  {pain.title.split("THEMACHINE").map((part, i, arr) => (
+                  {pain.title.split("THEMACHINE").map((part, i) => (
                     <Fragment key={i}>
                       {i > 0 && <TheMachineText />}
                       {part}
