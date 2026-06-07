@@ -15,7 +15,9 @@ const INSULTS = [
 ];
 
 export default function FrustratingRunner() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [gameOver, setGameOver] = useState(false);
   const [deathCount, setDeathCount] = useState(0);
   const [score, setScore] = useState(0);
@@ -268,8 +270,38 @@ export default function FrustratingRunner() {
     };
   }, []);
 
+  // Audio: solo suena cuando la sección del juego está visible
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const audio = new Audio("/audios/High_Score_Chase.mp3");
+    audio.loop = true;
+    audio.volume = 0.4;
+    audioRef.current = audio;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          audio.play().catch(() => {});
+        } else {
+          audio.pause();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+      audio.pause();
+      audio.src = "";
+    };
+  }, []);
+
   return (
-    <div className="w-full max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl select-none">
+    <div ref={containerRef} className="w-full max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl select-none">
       <div className="flex justify-between items-center mb-4">
         <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
           Filtro Simulado de Postulaciones v2.1
